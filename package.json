@@ -4,16 +4,22 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-	"eject": "expo eject",
-	"test": "npm run tslint && npm run tsc-test && npm run jest",
+    "eject": "expo eject",
+    "test": "npm run tslint && npm run tsc-test && npm run jest",
     "tslint": "tslint --project .",
     "tsc-test": "tsc --project . --noEmit",
     "jest": "jest --config ./jest.config.js"
   },
   "dependencies": {
+    "@types/node": "^11.9.6",
+    "@types/react-redux": "^7.0.1",
+    "@types/webpack-env": "^1.13.7",
     "expo": "^32.0.0",
     "react": "16.5.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz"
+    "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
+    "react-native-debugger-open": "^0.3.18",
+    "react-redux": "^6.0.1",
+    "redux": "^4.0.1"
   },
   "devDependencies": {
     "@types/expo": "^32.0.3",
@@ -23,9 +29,11 @@
     "jest": "^24.1.0",
     "jest-expo": "^32.0.0",
     "react-test-renderer": "^16.8.3",
+    "redux-devtools-extension": "^2.13.8",
     "ts-jest": "^24.0.0",
     "tslint": "^5.13.1",
-    "tslint-config-airbnb": "^5.11.1",
+    "tslint-eslint-rules": "^5.4.0",
+    "tslint-react": "^3.6.0",
     "typescript": "^3.3.3333"
   },
   "private": true
