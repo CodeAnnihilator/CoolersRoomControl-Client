@@ -9,6 +9,4 @@ const mapStateToProps = (state: any) => ({
 	value: getValue(state),
 });
 
-export default connect(mapStateToProps, {
-	incrementValue,
-})(Test);
+export default connect(mapStateToProps, {incrementValue})(Test);
