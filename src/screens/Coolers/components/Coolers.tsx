@@ -1,7 +1,8 @@
-import React, { ReactText } from 'react';
-import {View, Text, StyleSheet, GestureResponderEvent} from 'react-native';
-import CoolerSettings from './CoolerSettings';
+import React, {ReactText} from 'react';
+import {StyleSheet, Text, View} from 'react-native';
+
 import CoolerItem from './CoolerItem';
+import CoolerSettings from './CoolerSettings';
 
 const mock = [{
 	id: 1,
@@ -19,47 +20,51 @@ const styles = StyleSheet.create({
 		flex: 1,
 		alignItems: 'center',
 		justifyContent: 'center',
-	}
+	},
 });
 
 export default class Coolers extends React.Component<any, any> {
-	state = {
+	public state = {
 		selectedCoolerTitle: null,
-	}
+	};
 
-	getCoolerSettings = (event: GestureResponderEvent, selectedCoolerTitle: string) => this.setState({selectedCoolerTitle})
+	private readonly getCoolerSettings = (selectedCoolerTitle: ReactText) =>
+		this.setState({selectedCoolerTitle})
 
-	onPress = (event: GestureResponderEvent, id: ReactText) => this.props.navigation.navigate('CoolerCard', {id})
+	protected onPress = (id: ReactText) =>
+		this.props.navigation.navigate('CoolerCard', {id})
 
-	render() {
+	public render() {
+
 		const {selectedCoolerTitle} = this.state;
 		const {navigation} = this.props;
-		const roomID = JSON.stringify(navigation.getParam('roomID'))
+		const roomID = JSON.stringify(navigation.getParam('roomID'));
 
 		return (
 			<View style={styles.container}>
-				{selectedCoolerTitle
-					? (
-						<CoolerSettings
-							selectedCoolerTitle={selectedCoolerTitle}
-						/>
+				{
+					selectedCoolerTitle && (
+						<CoolerSettings selectedCoolerTitle={selectedCoolerTitle} />
 					)
-					: null}
-				<Text>Coolers</Text>
-				{roomID
-					? <Text>Room ID is {roomID}</Text>
-					: null
 				}
-				{mock.map(({id, title}) => (
-					<CoolerItem
-						key={id}
-						id={id}
-						title={title}
-						onLongPress={this.getCoolerSettings}
-						onPress={this.onPress}
-					/>
-				))}
+				<Text>Coolers</Text>
+				{
+					roomID && (
+						<Text>Room ID is {roomID}</Text>
+					)
+				}
+				{
+					mock.map(({id, title}) => (
+						<CoolerItem
+							key={id}
+							id={id}
+							title={title}
+							onLongPress={this.getCoolerSettings}
+							onPress={this.onPress}
+						/>
+					))
+				}
 			</View>
-		)
+		);
 	}
 }

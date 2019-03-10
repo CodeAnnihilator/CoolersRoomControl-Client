@@ -1,11 +1,7 @@
 import React from 'react';
-import EStyleSheet from 'react-native-extended-stylesheet';
 import {createAppContainer} from 'react-navigation';
-import AppNavigator from './navigation/components/index';
 
-import COLORS from './common/constants/colors';
-
-EStyleSheet.build(COLORS);
+import AppNavigator from 'navigation/components/index';
 
 const AppContainer = createAppContainer(AppNavigator);
 

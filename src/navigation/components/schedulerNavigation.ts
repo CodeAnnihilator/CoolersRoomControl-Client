@@ -1,5 +1,6 @@
-import { createStackNavigator } from "react-navigation";
-import Scheduler from "../../screens/Scheduler/components/Scheduler";
+import {createStackNavigator} from 'react-navigation';
+
+import Scheduler from '../../screens/Scheduler/components/Scheduler';
 
 export default createStackNavigator({
 	Scheduler: {
@@ -7,4 +8,4 @@ export default createStackNavigator({
 	},
 }, {
 	initialRouteName: 'Scheduler',
-})
+});

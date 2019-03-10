@@ -3,6 +3,8 @@
     "name": "CoolersRoomControl-Client",
     "slug": "CoolersRoomControl-Client",
     "sdkVersion": "32.0.0",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "description": "remote temperature control app",
+    "githubUrl": "https://github.com/CodeAnnihilator/CoolersRoomControl-Client"
   }
 }

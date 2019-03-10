@@ -1,27 +1,25 @@
 import React from 'react';
-import {SafeAreaView, Alert} from 'react-native';
+import {Alert, SafeAreaView} from 'react-native';
 
-export default class CoolerSettings extends React.Component {
-	render() {
-		return (
-			<SafeAreaView>
-				{Alert.alert(
-					'Coolers settings',
-					`You select a ${this.props.selectedCoolerTitle}`,
-					[
-						{
-							text: 'Remove cooler from room',
-							onPress: () => console.log('Remove cooler')
-						},
-						{
-							text: 'Cancel',
-							onPress: () => console.log('Cancel Pressed'),
-							style: 'cancel',
-						},
-					],
-					{cancelable: true},
-				)}
-			</SafeAreaView>
-		);
-	}
-}
+const CoolerSettings = (selectedCoolerTitle: any) => (
+	<SafeAreaView>
+		{(Alert.alert as any)(
+			'Coolers settings',
+			`You select a ${selectedCoolerTitle}`,
+			[
+				{
+					text: 'Remove cooler from room',
+					onPress: () => console.log('Remove cooler'),
+				},
+				{
+					text: 'Cancel',
+					onPress: () => console.log('Cancel Pressed'),
+					style: 'cancel',
+				},
+			],
+			{cancelable: true},
+		)}
+	</SafeAreaView>
+);
+
+export default CoolerSettings;

@@ -1,4 +1,5 @@
-import { withNavigation } from "react-navigation";
-import RoomItem from "../components/RoomItem";
+import {withNavigation} from 'react-navigation';
 
-export default withNavigation(RoomItem as any);
+import RoomItem from '../components/RoomItem';
+
+export default withNavigation(RoomItem as any) as any;
