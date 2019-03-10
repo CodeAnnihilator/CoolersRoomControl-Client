@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "baseUrl": "src",
+    "allowSyntheticDefaultImports": true,
     "target": "es5",
     "lib": ["es2015", "esnext.asynciterable"],
     "jsx": "react-native",
@@ -10,5 +12,6 @@
 	  "jest",
 	  "node",
     ]
-  }
+  },
+  "exclude": ["node_modules"]
 }

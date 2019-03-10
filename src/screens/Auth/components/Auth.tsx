@@ -1,12 +1,10 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {Text, View} from 'react-native';
 
-export default class Auth extends React.Component {
-	render() {
-		return (
-			<View>
-				<Text>Auth</Text>
-			</View>
-		)
-	}
-}
+const Auth = () => (
+	<View>
+		<Text>Auth</Text>
+	</View>
+);
+
+export default Auth;

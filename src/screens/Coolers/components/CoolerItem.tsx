@@ -1,10 +1,11 @@
-import React, { ReactText } from 'react';
-import {View, Text, TouchableOpacity, GestureResponderEvent, StyleSheet} from 'react-native';
+import React, {Component, ReactText} from 'react';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
-interface CoolerItemProps {
-	title: ReactText,
-	onLongPress: (event: GestureResponderEvent) => void,
-	onPress: (event: GestureResponderEvent) => void,
+interface ICoolerItemProps {
+	title: ReactText;
+	id: ReactText;
+	onLongPress: (title: ReactText) => void;
+	onPress: (id: ReactText) => void;
 }
 
 const styles = StyleSheet.create({
@@ -15,26 +16,29 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		justifyContent: 'center',
 		marginVertical: 10,
-	}
+	},
 });
 
-const CoolerItem: React.FC<CoolerItemProps> = ({title, id, onLongPress, onPress}) => {
-	const setCoolerTitle = (event: GestureResponderEvent) => onLongPress(event, title);
+export default class CoolerItem extends Component<ICoolerItemProps> {
+	public render() {
+		const {
+			title,
+			id,
+			onLongPress,
+			onPress,
+		} = this.props;
 
-	const onCoolerPress = (event: GestureResponderEvent) => onPress(event, id);
-
-	return (
-		<TouchableOpacity
-			onLongPress={setCoolerTitle}
-			onPress={onCoolerPress}
-		>
-			<View style={styles.container}>
-				<Text>
-					{title}
-				</Text>
-			</View>
-		</TouchableOpacity>
-	)
+		return (
+			<TouchableOpacity
+				onLongPress={() => onLongPress(title)}
+				onPress={() => onPress(id)}
+			>
+				<View style={styles.container}>
+					<Text>
+						{title}
+					</Text>
+				</View>
+			</TouchableOpacity>
+		);
+	}
 }
-
-export default CoolerItem;
