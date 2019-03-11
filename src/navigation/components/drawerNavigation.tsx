@@ -5,6 +5,8 @@ import RoomsNavigation from './roomsNavigation';
 import schedulerNavigation from './schedulerNavigation';
 import statisticsNavigation from './statisticsNavigation';
 
+import SideBar from '../../screens/SideBar/SideBar';
+
 export default createDrawerNavigator({
 	Rooms: {
 		screen: RoomsNavigation,
@@ -32,4 +34,5 @@ export default createDrawerNavigator({
 	},
 }, {
 	initialRouteName: 'Rooms',
+	contentComponent: SideBar,
 });

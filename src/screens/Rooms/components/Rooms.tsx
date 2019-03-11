@@ -25,7 +25,7 @@ const Rooms = () => (
 		<ScrollView>
 			{
 				Array
-					.from({length: 10})
+					.from({length: 1})
 					.map((_, index) => (
 						<RoomItemContainer
 							key={index}
