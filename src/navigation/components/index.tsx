@@ -16,5 +16,5 @@ export default createStackNavigator({
 	},
 }, {
 	headerMode: 'none',
-	initialRouteName: 'Auth',
+	initialRouteName: 'App',
 });
