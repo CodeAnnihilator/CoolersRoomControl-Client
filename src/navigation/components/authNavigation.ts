@@ -1,9 +1,11 @@
 import {createStackNavigator} from 'react-navigation';
 
-import Auth from '../../screens/Auth/components/Auth';
+import AuthContainer from '../../screens/Auth/containers/AuthContainer';
 
 export default createStackNavigator({
-	Auth,
+	Auth: {
+		screen: AuthContainer,
+	},
 }, {
 	headerMode: 'none',
 });
