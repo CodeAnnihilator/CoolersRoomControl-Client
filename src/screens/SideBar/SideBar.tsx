@@ -1,51 +1,71 @@
-import React from 'react';
+import React, {PureComponent} from 'react';
 import {NavigationActions} from 'react-navigation';
-import {ScrollView, Text, View} from 'react-native';
+import {View} from 'react-native';
+
+import HousePlanScaleImg from '../../assets/images/HousePlanScale';
+import CarAirConditioningImg from '../../assets/images/CarAirConditioning';
+import ClockImg from '../../assets/images/Clock';
+import PieChartImg from '../../assets/images/PieChart';
+import LogoutImg from '../../assets/images/Logout';
+import SettingsImg from '../../assets/images/Settings';
+
+import NavEl from './components/NavEl/NavEl';
+import Avatar from './components/Avatar/Avatar';
+import Devider from './components/Devider/Devider';
 
 import styles from './sideBarStyles';
 
-class SideBar extends React.Component<any> {
+class SideBar extends PureComponent<any> {
+
 	private readonly navigateToScreen = (route: any) => () => {
 		const navigateAction = NavigationActions.navigate({routeName: route});
 		this.props.navigation.dispatch(navigateAction);
 	}
 
 	public render() {
+		const {index} = this.props.navigation.state;
+
 		return (
 			<View style={styles.container}>
-				<ScrollView>
-					<View>
-						<Text style={styles.sectionHeadingStyle}>
-							Section 1
-						</Text>
-						<View style={styles.navSectionStyle}>
-							<Text style={styles.navItemStyle} onPress={this.navigateToScreen('Rooms')}>
-								Page1
-							</Text>
-						</View>
-					</View>
-					<View>
-						<Text style={styles.sectionHeadingStyle}>
-							Section 2
-						</Text>
-						<View style={styles.navSectionStyle}>
-							<Text style={styles.navItemStyle} onPress={this.navigateToScreen('Coolers')}>
-								Page2
-							</Text>
-							<Text style={styles.navItemStyle} onPress={this.navigateToScreen('Scheduler')}>
-								Page3
-							</Text>
-						</View>
-					</View>
-					<View>
-						<Text style={styles.navItemStyle} onPress={this.navigateToScreen('Settings')}>
-							Settings
-						</Text>
-					</View>
-				</ScrollView>
-				<View style={styles.footerContainer}>
-					<Text>This is my fixed footer</Text>
-				</View>
+				<Avatar />
+				<Devider />
+				<NavEl
+					title='Rooms'
+					onPress={this.navigateToScreen('Rooms')}
+					ImageComponent={HousePlanScaleImg}
+					isActive={index === 0}
+				/>
+				<NavEl
+					title='Coolers'
+					onPress={this.navigateToScreen('Coolers')}
+					ImageComponent={CarAirConditioningImg}
+					isActive={index === 1}
+				/>
+				<NavEl
+					title='Schedule'
+					onPress={this.navigateToScreen('Schedule')}
+					ImageComponent={ClockImg}
+					isActive={index === 2}
+					isNotification={true}
+				/>
+				<NavEl
+					title='Statistics'
+					onPress={this.navigateToScreen('Statistics')}
+					ImageComponent={PieChartImg}
+					isActive={index === 3}
+				/>
+				<Devider />
+				<NavEl
+					title='Settings'
+					onPress={this.navigateToScreen('Settings')}
+					ImageComponent={SettingsImg}
+					isActive={index === 4}
+				/>
+				<NavEl
+					title='Sign out'
+					onPress={this.navigateToScreen('Logout')}
+					ImageComponent={LogoutImg}
+				/>
 			</View>
 		);
 	}

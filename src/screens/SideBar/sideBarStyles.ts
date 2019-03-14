@@ -1,22 +1,13 @@
-import {StyleSheet} from 'react-native';
+import EStyleSheet from 'react-native-extended-stylesheet';
 
-export default StyleSheet.create({
+export default EStyleSheet.create({
 	container: {
-		paddingTop: 20,
 		flex: 1,
-	},
-	navItemStyle: {
-		padding: 10,
-	},
-	navSectionStyle: {
-		backgroundColor: 'lightgrey',
-	},
-	sectionHeadingStyle: {
-		paddingVertical: 10,
-		paddingHorizontal: 5,
-	},
-	footerContainer: {
-		padding: 20,
-		backgroundColor: 'lightgrey',
+		display: 'flex',
+		flexDirection: 'column',
+		justifyContent: 'space-evenly',
+		backgroundColor: '#F4F4F4',
+		color: '#525252',
+		paddingTop: 30,
 	},
 });
