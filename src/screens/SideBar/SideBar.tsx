@@ -9,6 +9,7 @@ class SideBar extends React.Component<any> {
 		const navigateAction = NavigationActions.navigate({routeName: route});
 		this.props.navigation.dispatch(navigateAction);
 	}
+
 	public render() {
 		return (
 			<View style={styles.container}>
@@ -35,6 +36,11 @@ class SideBar extends React.Component<any> {
 								Page3
 							</Text>
 						</View>
+					</View>
+					<View>
+						<Text style={styles.navItemStyle} onPress={this.navigateToScreen('Settings')}>
+							Settings
+						</Text>
 					</View>
 				</ScrollView>
 				<View style={styles.footerContainer}>

@@ -4,6 +4,7 @@ import coolerNavigation from './coolerNavigation';
 import RoomsNavigation from './roomsNavigation';
 import schedulerNavigation from './schedulerNavigation';
 import statisticsNavigation from './statisticsNavigation';
+import SettingsNavigation from './settingsNavigation';
 
 import SideBar from '../../screens/SideBar/SideBar';
 
@@ -30,6 +31,12 @@ export default createDrawerNavigator({
 		screen: statisticsNavigation,
 		navigationOptions: {
 			title: 'Statistics',
+		},
+	},
+	Settings: {
+		screen: SettingsNavigation,
+		navigationOptions: {
+			title: 'Settings',
 		},
 	},
 }, {
