@@ -33,7 +33,7 @@ export default class RoomItem extends Component<any, any> {
 					onPress={() => navigation.navigate('RoomCard', {roomID: index})}
 					style={styles.roomBoxContent}
 				>
-					<Text>Room {index}</Text>
+					<Text>Room {+index + 1}</Text>
 					<Image
 						style={styles.roomBox}
 						source={{uri: `https://picsum.photos/${roomBoxSquareSide}/${roomBoxSquareSide}/?random`}}

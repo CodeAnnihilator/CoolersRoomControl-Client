@@ -1,24 +1,32 @@
 import {createBottomTabNavigator, createStackNavigator} from 'react-navigation';
 
-import Coolers from '../../screens/Coolers/components/Coolers';
 import Rooms from '../../screens/Rooms/components/Rooms';
 import Scheduler from '../../screens/Scheduler/components/Scheduler';
 import Statistics from '../../screens/Statistics/components/Statistics';
+import RoomCardContainer from '../../screens/Rooms/containers/RoomCardContainer';
 
 export default createStackNavigator({
-	RoomCard: createBottomTabNavigator({
-		CoolersInRoom: {
-			screen: Coolers,
-		},
-		Scheduler: {
-			screen: Scheduler,
-		},
-		Statistics: {
-			screen: Statistics,
-		},
-	}, {
-		initialRouteName: 'CoolersInRoom',
-	}),
+	RoomCard: {
+		screen: createBottomTabNavigator({
+			Room: {
+				screen: RoomCardContainer,
+				navigationOptions: {
+					title: 'Room',
+				},
+			},
+			Scheduler: {
+				screen: Scheduler,
+			},
+			Statistics: {
+				screen: Statistics,
+			},
+		}, {
+			initialRouteName: 'Room',
+			swipeEnabled: true,
+		}),
+		navigationOptions: () => ({
+			title: 'Main Office Room',
+		})},
 	Rooms: {
 		screen: Rooms,
 	},

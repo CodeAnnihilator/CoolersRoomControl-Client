@@ -29,7 +29,7 @@ const Rooms = () => (
 					.map((_, index) => (
 						<RoomItemContainer
 							key={index}
-							index={index + 1}
+							index={index}
 						/>
 					))
 			}
