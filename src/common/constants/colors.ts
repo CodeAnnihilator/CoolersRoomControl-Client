@@ -17,6 +17,7 @@ export default {
 
 	/* gray */
 	$gray50: '#FAFAFA',
+	$gray94: '#F0F0F0',
 	$gray100: '#F5F5F5',
 	$gray200: '#EEEEEE',
 	$gray300: '#E0E0E0',
@@ -25,6 +26,7 @@ export default {
 
 	/* white */
 	$white: '#FFFFFF',
+	$whitesmoke: '#F3F3F3',
 
 	/* orange */
 	$orange600: '#FB8C00',

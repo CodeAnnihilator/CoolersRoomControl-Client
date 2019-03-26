@@ -1,45 +1,60 @@
 import React, {Component} from 'react';
-import {Dimensions, Image, SafeAreaView, StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {Image, Text, View, Button} from 'react-native';
 
-const roomBoxSquareSide = Dimensions.get('window').width - 40;
+import styles from '../styles/RoomItem.styles';
 
-const styles = StyleSheet.create({
-	roomBox: {
-		width: roomBoxSquareSide,
-		height: roomBoxSquareSide,
-		backgroundColor: '#f0f0f0',
-	},
-	roomBoxContainer: {
-		marginVertical: 20,
-		alignItems: 'center',
-		justifyContent: 'center',
-	},
-	roomBoxContent: {
-		alignItems: 'center',
-		justifyContent: 'center',
-	},
-});
+import {getTemperatureAtSystem} from '../../../utils/temperatureAtSystem';
 
-export default class RoomItem extends Component<any, any> {
+import Thermometer from '../../../assets/images/Thermometer';
+import Drop from '../../../assets/images/Drop';
+
+export default class RoomItem extends Component<any> {
+	private readonly goToRoom = () => {
+		const {id, navigation} = this.props;
+
+		navigation.navigate('RoomCard', {roomID: id});
+	}
+
 	public render() {
 		const {
-			index,
-			navigation,
+			room: {
+				title,
+				humidity,
+				temperatureScale,
+				temperature,
+			},
 		} = this.props;
 
 		return (
-			<SafeAreaView style={styles.roomBoxContainer}>
-				<TouchableOpacity
-					onPress={() => navigation.navigate('RoomCard', {roomID: index})}
-					style={styles.roomBoxContent}
-				>
-					<Text>Room {+index + 1}</Text>
-					<Image
-						style={styles.roomBox}
-						source={{uri: `https://picsum.photos/${roomBoxSquareSide}/${roomBoxSquareSide}/?random`}}
-					/>
-				</TouchableOpacity>
-			</SafeAreaView>
+			<View style={styles.roomBoxContainer}>
+				<Image
+					style={styles.roomImage}
+					source={{uri: 'https://picsum.photos/400/400/?random'}}
+				/>
+				<View style={styles.roomBox}>
+					<Text style={styles.roomBoxTitle}>{title}</Text>
+					<View style={styles.roomBoxInfo}>
+						<View style={styles.roomBoxParams}>
+							<Thermometer width={14} height={14} />
+							<Text style={styles.roomBoxParamsTitle}>
+								+ {getTemperatureAtSystem(temperature, temperatureScale)}
+							</Text>
+						</View>
+						<View style={styles.roomBoxParams}>
+							<Drop width={14} height={14} />
+							<Text style={styles.roomBoxParamsTitle}>
+								{humidity} %
+							</Text>
+						</View>
+					</View>
+					<View style={styles.roomBoxRoomButton}>
+						<Button
+							onPress={this.goToRoom}
+							title='enter room'
+						/>
+					</View>
+				</View>
+			</View>
 		);
 	}
 }

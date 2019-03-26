@@ -1,40 +1,47 @@
 import React from 'react';
-import {Dimensions, ScrollView, StyleSheet, Text, View} from 'react-native';
+import {ScrollView, View, RefreshControl} from 'react-native';
+
+// import styles from '../styles/Rooms.styles';
 
 import RoomItemContainer from '../containers/RoomItemContainer';
 
-const roomBoxSquareSide = Dimensions.get('window').width - 60;
+export default class Rooms extends React.Component<any> {
+	public state = {
+		refreshing: false,
+	};
 
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		alignItems: 'center',
-		justifyContent: 'center',
-	},
-	roomBox: {
-		marginVertical: 10,
-		width: roomBoxSquareSide,
-		height: Dimensions.get('window').width - 40,
-		backgroundColor: '#f0f0f0',
-	},
-});
+	private readonly onRefresh = () => {
+		this.setState({refreshing: true});
 
-const Rooms = () => (
-	<View style={styles.container}>
-		<Text>Rooms</Text>
-		<ScrollView>
-			{
-				Array
-					.from({length: 1})
-					.map((_, index) => (
-						<RoomItemContainer
-							key={index}
-							index={index}
+		new Promise(res => {
+			setTimeout(() => res(), 2000);
+		}).then(() => {
+			this.setState({refreshing: false});
+		});
+	}
+
+	public render() {
+
+		return (
+			<View>
+				<ScrollView
+					refreshControl={
+						<RefreshControl
+							refreshing={this.state.refreshing}
+							onRefresh={this.onRefresh}
 						/>
-					))
-			}
-		</ScrollView>
-	</View>
-);
-
-export default Rooms;
+					}
+				>
+					{
+						this.props.rooms.map(({id}: {id: string}) => (
+							<RoomItemContainer
+								key={id}
+								id={id}
+							/>
+						))
+					}
+				</ScrollView>
+			</View>
+		);
+	}
+}
