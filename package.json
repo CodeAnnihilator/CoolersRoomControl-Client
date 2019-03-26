@@ -25,6 +25,7 @@
     "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
     "react-native-classnames": "0.1.1",
     "react-native-debugger-open": "0.3.18",
+    "react-native-image-picker": "0.28.0",
     "react-native-svg-uri": "1.2.3",
     "react-redux": "6.0.1",
     "redux": "4.0.1",

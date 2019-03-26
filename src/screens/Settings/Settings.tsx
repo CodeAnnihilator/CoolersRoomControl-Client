@@ -1,63 +1,75 @@
 import React from 'react';
-import {Text, View, KeyboardAvoidingView, ScrollView, Button} from 'react-native';
+import {Text, View, KeyboardAvoidingView, ScrollView} from 'react-native';
+import {Field} from 'redux-form';
 
 import styles from './styles/Settings.styles';
 
-import SettingsSwitchItemContainer from './containers/SettingsSwitchItemContainer';
-import SettingsAlert from './components/SettingsAlert';
+import AvatarUpload from '../../common/components/AvatarUpload';
+
+import SettingsPasswordInputContainer from './containers/SettingsPasswordInputContainer';
+
+const UserInfoRenderer: React.FC<any> = props => <Text>{props.input.value}</Text>;
+
+const AvatarUploadRenderer: React.FC<any> = ({input: {value, onChange}}) => (
+	<AvatarUpload uri={value} onChange={onChange} />);
 
 export default class Settings extends React.PureComponent<any> {
-	public types = ['fahrenheit', 'celsius'];
-
-	public state = {
-		isAlertVisible: false,
-	};
-
-	private readonly showAlert = () => this.setState({isAlertVisible: true});
-
-	private readonly hideAlert = () => this.setState({isAlertVisible: false});
-
-	private readonly moveToSettingsResetPassword = () => this.props.navigation.navigate('SettingsResetPassword');
-
 	public render() {
 
 		return (
 			<KeyboardAvoidingView
-				style={styles.container}
 				behavior='padding'
 				enabled
 			>
-				{this.state.isAlertVisible
-					? SettingsAlert(this.hideAlert)
-					: null}
 				<ScrollView>
 					<View style={styles.user}>
-						<Text style={styles.settingsTitle}>Settings</Text>
+						<Text style={styles.userBoxTitle}>USER SETTINGS</Text>
 					</View>
-					<View style={styles.settingsBox}>
-						<Text style={styles.settingsBoxHeader}>Temperature scale:</Text>
-						{this.types.map((type: string, index: number) => (
-							<SettingsSwitchItemContainer
-								key={type}
-								type={type}
-								index={index}
-								switchesArrayLength={this.types.length}
-							/>
-						))}
+					<View style={styles.userAvatarBox}>
+						<Field name='image' component={AvatarUploadRenderer} />
+
 					</View>
-					<View style={styles.passwordBox}>
-						<Text style={styles.settingsBoxHeader}>Password settings:</Text>
-						<Button
-							onPress={this.moveToSettingsResetPassword}
-							title='password settings'
-						/>
+					<View style={styles.userInfo}>
+						<Text style={styles.userInfoTitle}>First Name:</Text>
+						<Field name='firstname' component={UserInfoRenderer} />
 					</View>
-					<View style={styles.saveSettings}>
-						<Button
-							onPress={this.showAlert}
-							title='save settings'
-						/>
+					<View style={styles.userInfo}>
+						<Text style={styles.userInfoTitle}>Last Name:</Text>
+						<Field name='lastname' component={UserInfoRenderer}/>
 					</View>
+					<View style={styles.userInfo}>
+						<Text style={styles.userInfoTitle}>Age:</Text>
+						<Field name='age' component={UserInfoRenderer}/>
+					</View>
+					<View style={styles.userInfo}>
+						<Text style={styles.userInfoTitle}>Role:</Text>
+						<Field name='role' component={UserInfoRenderer}/>
+					</View>
+					<View style={styles.user}>
+						<Text style={styles.userBoxTitle}>APP SETTINGS</Text>
+					</View>
+					<View style={styles.userInfo}>
+						<Text style={styles.userInfoTitle}>Temperature scale:</Text>
+						<Text style={styles.userInfoAttribute}>Celsius</Text>
+					</View>
+					<View style={styles.user}>
+						<Text style={styles.userBoxTitle}>PASSWORD SETTINGS</Text>
+					</View>
+					<Field
+						component={SettingsPasswordInputContainer}
+						title='Old Password'
+						name='oldPassword'
+					/>
+					<Field
+						component={SettingsPasswordInputContainer}
+						title='New Password'
+						name='newPassword'
+					/>
+					<Field
+						component={SettingsPasswordInputContainer}
+						title='Confirm Password'
+						name='confirmPassword'
+					/>
 				</ScrollView>
 			</KeyboardAvoidingView>
 		);

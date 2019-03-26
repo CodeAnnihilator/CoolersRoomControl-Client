@@ -1,5 +1,4 @@
 import EStyleSheet from 'react-native-extended-stylesheet';
-import {Dimensions} from 'react-native';
 
 export default EStyleSheet.create({
 	container: {
@@ -12,43 +11,43 @@ export default EStyleSheet.create({
 		alignItems: 'center',
 		justifyContent: 'center',
 		borderBottomWidth: 1,
-		borderBottomColor: '$gray300',
+		borderBottomColor: '#f3f3f3',
 		paddingVertical: 20,
 		width: '100%',
 	},
-	settingsBox: {
-		width: Dimensions.get('screen').width - 40,
-		backgroundColor: '$white',
-		borderColor: '$gray300',
+	userAvatarBox: {
 		alignItems: 'center',
 		justifyContent: 'center',
-		borderRadius: 10,
-		borderWidth: 1,
-		height: 170,
-		marginVertical: 20,
+		borderBottomWidth: 1,
+		borderBottomColor: '#f3f3f3',
+		paddingVertical: 10,
 	},
-	settingsBoxHeader: {
-		display: 'flex',
+	userBoxTitle: {
+		// fontFamily: 'DIN',
+		fontSize: 12,
+		fontWeight: 'bold',
+		color: '#000000',
+	},
+	userInfo: {
+		height: 60,
+		borderBottomWidth: 1,
+		borderBottomColor: '#f3f3f3',
+		paddingHorizontal: 25,
 		justifyContent: 'center',
-		color: '$gray600',
-		marginTop: 10,
-		fontSize: 16,
 	},
-	settingsTitle: {
-		fontSize: 24,
+	userInfoTitle: {
+		fontSize: 10,
+		color: '#505050',
 	},
-	passwordBox: {
-		width: Dimensions.get('screen').width - 40,
-		backgroundColor: '$white',
-		borderColor: '$gray300',
-		alignItems: 'center',
-		justifyContent: 'space-between',
-		borderRadius: 10,
-		borderWidth: 1,
-		height: 100,
-		paddingBottom: 15,
+	userInfoAttribute: {
+		fontWeight: 'bold',
+		marginTop: 5,
 	},
-	saveSettings: {
-		marginVertical: 20,
+	userPwdInput: {
+		paddingVertical: 10,
+	},
+	settingsPhotoBox: {
+		width: 70,
+		height: 70,
 	},
 });
