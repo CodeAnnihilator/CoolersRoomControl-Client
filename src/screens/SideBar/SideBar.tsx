@@ -4,10 +4,11 @@ import {View} from 'react-native';
 
 import HousePlanScaleImg from '../../assets/images/HousePlanScale';
 import CarAirConditioningImg from '../../assets/images/CarAirConditioning';
-import ClockImg from '../../assets/images/Clock';
+import ScheduleImg from '../../assets/images/Schedule';
 import PieChartImg from '../../assets/images/PieChart';
 import LogoutImg from '../../assets/images/Logout';
 import SettingsImg from '../../assets/images/Settings';
+import UsersImg from '../../assets/images/Users';
 
 import NavEl from './components/NavEl/NavEl';
 import Avatar from './components/Avatar/Avatar';
@@ -44,7 +45,7 @@ class SideBar extends PureComponent<any> {
 				<NavEl
 					title='Schedule'
 					onPress={this.navigateToScreen('Schedule')}
-					ImageComponent={ClockImg}
+					ImageComponent={ScheduleImg}
 					isActive={index === 2}
 					isNotification={true}
 				/>
@@ -54,12 +55,18 @@ class SideBar extends PureComponent<any> {
 					ImageComponent={PieChartImg}
 					isActive={index === 3}
 				/>
+				<NavEl
+					title='Users'
+					onPress={this.navigateToScreen('Users')}
+					ImageComponent={UsersImg}
+					isActive={index === 4}
+				/>
 				<Devider />
 				<NavEl
 					title='Settings'
 					onPress={this.navigateToScreen('Settings')}
 					ImageComponent={SettingsImg}
-					isActive={index === 4}
+					isActive={index === 5}
 				/>
 				<NavEl
 					title='Sign out'

@@ -5,6 +5,7 @@ import RoomsNavigation from './roomsNavigation';
 import schedulerNavigation from './schedulerNavigation';
 import statisticsNavigation from './statisticsNavigation';
 import SettingsNavigation from './settingsNavigation';
+import usersNavigation from './usersNavigation';
 
 import SideBar from '../../screens/SideBar/SideBar';
 
@@ -31,6 +32,12 @@ export default createDrawerNavigator({
 		screen: statisticsNavigation,
 		navigationOptions: {
 			title: 'Statistics',
+		},
+	},
+	Users: {
+		screen: usersNavigation,
+		navigationOptions: {
+			title: 'Users',
 		},
 	},
 	Settings: {

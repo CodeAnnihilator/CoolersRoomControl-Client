@@ -10,6 +10,7 @@ export default StyleSheet.create({
 	elWrapper: {
 		display: 'flex',
 		flexDirection: 'row',
+		alignItems: 'center',
 	},
 	text: {
 		paddingLeft: 20,

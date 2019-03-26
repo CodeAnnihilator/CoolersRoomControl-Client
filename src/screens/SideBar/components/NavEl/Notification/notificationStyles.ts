@@ -11,7 +11,7 @@ export default StyleSheet.create({
 		borderRadius: 6,
 		zIndex: 1,
 		right: -3,
-		top: -3,
+		bottom: -3,
 		backgroundColor: '#F4F4F4',
 	},
 	notification_inner: {
