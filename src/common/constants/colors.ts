@@ -44,4 +44,5 @@ export default {
 	$green200: '#A5D6A7',
 	$green600: '#43A047',
 	$green800: '#2E7D32',
+	$bage: '#02C883',
 };

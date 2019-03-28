@@ -9,6 +9,7 @@ import PieChartImg from '../../assets/images/PieChart';
 import LogoutImg from '../../assets/images/Logout';
 import SettingsImg from '../../assets/images/Settings';
 import UsersImg from '../../assets/images/Users';
+import NotificationsImg from '../../assets/images/Notifications';
 
 import NavEl from './components/NavEl/NavEl';
 import Avatar from './components/Avatar/Avatar';
@@ -61,12 +62,18 @@ class SideBar extends PureComponent<any> {
 					ImageComponent={UsersImg}
 					isActive={index === 4}
 				/>
+				<NavEl
+					title='Notifications'
+					onPress={this.navigateToScreen('Notifications')}
+					ImageComponent={NotificationsImg}
+					isActive={index === 5}
+				/>
 				<Devider />
 				<NavEl
 					title='Settings'
 					onPress={this.navigateToScreen('Settings')}
 					ImageComponent={SettingsImg}
-					isActive={index === 5}
+					isActive={index === 6}
 				/>
 				<NavEl
 					title='Sign out'

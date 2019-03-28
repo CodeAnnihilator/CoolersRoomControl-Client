@@ -20,6 +20,7 @@ const SubmitEditForm = connect()(({dispatch}: DispatchProp) => (
 		title='Save'
 	/>
 ));
+import Notifications from '../../screens/Rooms/containers/NotificationsContainer';
 
 export default createStackNavigator({
 	RoomCard: {
@@ -35,6 +36,9 @@ export default createStackNavigator({
 			},
 			Statistics: {
 				screen: Statistics,
+			},
+			Notification: {
+				screen: Notifications,
 			},
 		}, {
 			initialRouteName: 'Room',
