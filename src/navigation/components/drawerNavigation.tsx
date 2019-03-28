@@ -6,6 +6,7 @@ import schedulerNavigation from './schedulerNavigation';
 import statisticsNavigation from './statisticsNavigation';
 import SettingsNavigation from './settingsNavigation';
 import usersNavigation from './usersNavigation';
+import Notifications from './notificationsNavigation';
 
 import SideBar from '../../screens/SideBar/SideBar';
 
@@ -38,6 +39,12 @@ export default createDrawerNavigator({
 		screen: usersNavigation,
 		navigationOptions: {
 			title: 'Users',
+		},
+	},
+	Notifications: {
+		screen: Notifications,
+		navigationOptions: {
+			title: 'Notifications',
 		},
 	},
 	Settings: {

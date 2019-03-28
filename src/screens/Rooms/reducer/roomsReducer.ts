@@ -8,6 +8,8 @@ import {
 
 import images from './rooms.images.mock';
 
+import {generateNotificationsByRoom} from '../../../common/seed/entities';
+
 const initialState = {
 	rooms: [
 		{
@@ -116,6 +118,7 @@ const initialState = {
 			choosenImage: null,
 		},
 	],
+	notificationsByRooms: generateNotificationsByRoom(5),
 };
 
 const roomsReducer = handleActions({
