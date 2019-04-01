@@ -27,7 +27,6 @@ export default class Settings extends React.PureComponent<any> {
 					</View>
 					<View style={styles.userAvatarBox}>
 						<Field name='image' component={AvatarUploadRenderer} />
-
 					</View>
 					<View style={styles.userInfo}>
 						<Text style={styles.userInfoTitle}>First Name:</Text>
