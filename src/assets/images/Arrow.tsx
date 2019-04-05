@@ -3,12 +3,26 @@ import Svg, {Path} from 'react-native-svg';
 
 /* tslint:disable */
 
-const Arrow: React.FC<any> = ({fill, width, height, direction}) => (
+const directions = {
+	left: 270,
+	right: 90,
+	up: 0,
+	down: 180,
+}
+
+interface IArrow {
+	fill?: string,
+	width?: number | string,
+	height?: number | string,
+	direction?: string,
+}
+
+const Arrow: React.FC<IArrow> = ({fill, width, height, direction}) => (
 	<Svg
 		width={width}
 		height={height}
 		viewBox="0 0 31.479 31.479"
-		style={{transform: [{ rotate: `${direction === 'up' ? 0 : 180}deg`}]}}
+		style={{transform: [{ rotate: `${directions[direction]}deg`}]}}
 	>
 		<Path
 			fill={fill}
@@ -18,5 +32,12 @@ const Arrow: React.FC<any> = ({fill, width, height, direction}) => (
 		/>
 	</Svg>
 );
+
+Arrow.defaultProps = {
+	direction: 'up',
+	width: 18,
+	height: 18,
+	fill: '#000',
+}
 
 export default Arrow;

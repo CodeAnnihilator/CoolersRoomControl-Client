@@ -1,8 +1,6 @@
 import React from 'react';
 import {ScrollView, View, RefreshControl} from 'react-native';
 
-// import styles from '../styles/Rooms.styles';
-
 import RoomItemContainer from '../containers/RoomItemContainer';
 
 export default class Rooms extends React.Component<any> {

@@ -21,3 +21,15 @@ export const getPowerAtRoom = createSelector(
 		return 0;
 	},
 );
+
+export const getRoomImagesByID = createSelector(
+	getRooms,
+	(_: any, id: string) => id,
+	(rooms, id) => (rooms.find((item: any) => item.id === id) || {}).images || [],
+);
+
+export const getChoosenImageAtRoom = createSelector(
+	getRooms,
+	(_: any, id: string) => id,
+	(rooms, id) => (rooms.find((item: any) => item.id === id) || {}).choosenImage,
+);
