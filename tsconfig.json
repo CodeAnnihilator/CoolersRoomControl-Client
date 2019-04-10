@@ -10,7 +10,11 @@
     "types": [
 	  "jest",
 	  "node",
-    ]
+	],
+	"baseUrl": "src",
+    "paths": {
+      "assets/*": ["./assets/*"]
+    }
   },
   "exclude": ["node_modules"]
 }

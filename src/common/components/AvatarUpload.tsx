@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react';
 import {View, ImageBackground, TouchableOpacity, StyleSheet} from 'react-native';
 import {ImagePicker, Permissions} from 'expo';
-import PhotoCamera from '../../assets/images/PhotoCamera';
+import PhotoCamera from 'assets/images/PhotoCamera';
 
 const styles = StyleSheet.create({
 	avatarBox: {

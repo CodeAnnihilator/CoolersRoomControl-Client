@@ -1,46 +1,43 @@
 import React from 'react';
-import {ScrollView, View, RefreshControl} from 'react-native';
-
-// import styles from '../styles/Rooms.styles';
+import {Linking, WebBrowser} from 'expo';
+import {ScrollView, View, Text, AsyncStorage} from 'react-native';
 
 import RoomItemContainer from '../containers/RoomItemContainer';
 
 export default class Rooms extends React.Component<any> {
-	public state = {
-		refreshing: false,
-	};
+	private readonly handleOAuthLogin = async () => {
+		const redirectUrl = await Linking.getInitialURL();
+		const authUrl = 'https://coolers.localtunnel.me/api/auth/google';
 
-	private readonly onRefresh = () => {
-		this.setState({refreshing: true});
+		this.addLinkingListener();
 
-		new Promise(res => {
-			setTimeout(() => res(), 2000);
-		}).then(() => {
-			this.setState({refreshing: false});
-		});
+		await WebBrowser.openAuthSessionAsync(authUrl, redirectUrl)
+			.then((token: any) => AsyncStorage.setItem('token', token));
+
+		this.removeLinkingListener();
 	}
+
+	private readonly handleRedirect = () => WebBrowser.dismissBrowser();
+	private readonly addLinkingListener = () => Linking.addEventListener('url', this.handleRedirect);
+	private readonly removeLinkingListener = () => Linking.removeEventListener('url', this.handleRedirect);
 
 	public render() {
 
 		return (
 			<View>
-				<ScrollView
-					refreshControl={
-						<RefreshControl
-							refreshing={this.state.refreshing}
-							onRefresh={this.onRefresh}
-						/>
-					}
-				>
-					{
-						this.props.rooms.map(({id}: {id: string}) => (
-							<RoomItemContainer
-								key={id}
-								id={id}
-							/>
-						))
-					}
-				</ScrollView>
+				<Text onPress={this.handleOAuthLogin}>AUTHENTICATE</Text>
+				<View>
+					<ScrollView>
+						{
+							this.props.rooms.map(({id}: {id: string}) => (
+								<RoomItemContainer
+									key={id}
+									id={id}
+								/>
+							))
+						}
+					</ScrollView>
+				</View>
 			</View>
 		);
 	}
