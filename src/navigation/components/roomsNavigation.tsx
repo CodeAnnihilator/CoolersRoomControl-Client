@@ -1,7 +1,7 @@
 import React from 'react';
 import {submit} from 'redux-form';
 import {connect, DispatchProp} from 'react-redux';
-import {TouchableOpacity, Button} from 'react-native';
+import {TouchableOpacity, Button, Text} from 'react-native';
 import {createBottomTabNavigator, createStackNavigator} from 'react-navigation';
 
 import Menu from '../../assets/images/Menu';
@@ -48,7 +48,9 @@ export default createStackNavigator({
 			title: 'Main Office Room',
 			headerRight: (
 				<TouchableOpacity onPress={() => navigation.navigate('EditRoomCard', {roomID: navigation.getParam('roomID')})}>
-					<KebabMenu width={18} height={18} />
+					<Text>
+						<KebabMenu width={18} height={18} />
+					</Text>
 				</TouchableOpacity>
 			),
 			headerRightContainerStyle: {paddingRight: 20},
@@ -73,7 +75,9 @@ export default createStackNavigator({
 			),
 			headerRight: (
 				<TouchableOpacity onPress={() => console.log('sub menu')}>
-					<KebabMenu width={18} height={18} />
+					<Text>
+						<KebabMenu width={18} height={18} />
+					</Text>
 				</TouchableOpacity>
 			),
 			headerRightContainerStyle: {paddingRight: 20, paddingTop: 10},
@@ -92,7 +96,9 @@ export default createStackNavigator({
 			),
 			headerRight: (
 				<TouchableOpacity onPress={() => console.log('kebab menu')}>
-					<KebabMenu width={18} height={18} />
+					<Text>
+						<KebabMenu width={18} height={18} />
+					</Text>
 				</TouchableOpacity>
 			),
 			headerLeftContainerStyle: {paddingLeft: 20},
