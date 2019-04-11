@@ -4,4 +4,6 @@ npm-debug.*
 *.jks
 *.p12
 *.key
+yarn-debug.log*
+yarn-error.log*
 *.mobileprovision

@@ -23,6 +23,7 @@ export default {
 	$gray300: '#E0E0E0',
 	$gray400: '#BDBDBD',
 	$gray600: '#757575',
+	$gray800: '#424242',
 
 	/* white */
 	$white: '#FFFFFF',

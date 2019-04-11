@@ -11,6 +11,7 @@ import Scheduler from '../../screens/Scheduler/components/Scheduler';
 import Statistics from '../../screens/Statistics/components/Statistics';
 import RoomsContainer from '../../screens/Rooms/containers/RoomsContainer';
 import RoomCardContainer from '../../screens/Rooms/containers/RoomCardContainer';
+import RoomsKebabContainer from '../../screens/Rooms/components/RoomsKebabContainer';
 import RoomEditRoomContainer from '../../screens/Rooms/containers/RoomEditRoomContainer';
 import RoomEditImageGalleryContainer from '../../screens/Rooms/containers/RoomEditImageGalleryContainer';
 
@@ -95,11 +96,11 @@ export default createStackNavigator({
 				</TouchableOpacity>
 			),
 			headerRight: (
-				<TouchableOpacity onPress={() => console.log('kebab menu')}>
+				<RoomsKebabContainer navigation={navigation}>
 					<Text>
 						<KebabMenu width={18} height={18} />
 					</Text>
-				</TouchableOpacity>
+				</RoomsKebabContainer>
 			),
 			headerLeftContainerStyle: {paddingLeft: 20},
 			headerRightContainerStyle: {paddingRight: 20},

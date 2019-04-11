@@ -17,7 +17,7 @@ export default class ImageGallery extends PureComponent<IImageGallery> {
 		super(props);
 	}
 
-	private imagesRef = React.createRef<ScrollView>();
+	private readonly imagesRef = React.createRef<ScrollView>();
 
 	public componentDidMount() {
 		const {images, choosenImage} = this.props;
