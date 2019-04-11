@@ -1,8 +1,10 @@
 import * as types from '../types/entitiesTypes';
 
+import {arrCoolers} from '../seed/entities';
+
 const INITIAL_STATE = {
 	rooms: [],
-	coolers: [],
+	coolers: arrCoolers,
 	value: 0,
 };
 

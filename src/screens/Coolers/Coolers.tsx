@@ -1,10 +1,8 @@
-import React, {ReactText, PureComponent} from 'react';
+import React, {ReactText, Component} from 'react';
 import {ScrollView} from 'react-native';
 import {NavigationScreenProps} from 'react-navigation';
 
 import CoolerItem from './components/CoolerItem/CoolerItem';
-
-import {coolers} from '../../common/seed/entities';
 
 import styles from './coolersStyles';
 
@@ -14,14 +12,22 @@ interface ICooler {
 	title: string;
 	series: string;
 	status: string;
+	room: string;
+	place: string;
+	source: string;
+	type: string;
+	certification: string;
+	cop: string;
 }
 
-export default class Coolers extends PureComponent<NavigationScreenProps> {
+export default class Coolers extends Component<any, NavigationScreenProps> {
 
 	protected onPress = (id: ReactText) =>
 		this.props.navigation.navigate('CoolerCard', {id})
 
 	public render() {
+		const {coolers} = this.props;
+
 		return (
 			<ScrollView style={styles.container}>
 				{
