@@ -11,9 +11,13 @@ import Scheduler from '../../screens/Scheduler/components/Scheduler';
 import Statistics from '../../screens/Statistics/components/Statistics';
 import RoomsContainer from '../../screens/Rooms/containers/RoomsContainer';
 import RoomCardContainer from '../../screens/Rooms/containers/RoomCardContainer';
+import Notifications from '../../screens/Rooms/containers/NotificationsContainer';
 import RoomsKebabContainer from '../../screens/Rooms/components/RoomsKebabContainer';
+import RoomAddCardContainer from '../../screens/Rooms/containers/RoomAddCardContainer';
 import RoomEditRoomContainer from '../../screens/Rooms/containers/RoomEditRoomContainer';
+import RoomsEditCardKebabContainer from '../../screens/Rooms/containers/RoomsEditCardKebabContainer';
 import RoomEditImageGalleryContainer from '../../screens/Rooms/containers/RoomEditImageGalleryContainer';
+import RoomEditImageGalleryKebabContainer from '../../screens/Rooms/containers/RoomEditImageGalleryKebabContainer';
 
 const SubmitEditForm = connect()(({dispatch}: DispatchProp) => (
 	<Button
@@ -21,7 +25,6 @@ const SubmitEditForm = connect()(({dispatch}: DispatchProp) => (
 		title='Save'
 	/>
 ));
-import Notifications from '../../screens/Rooms/containers/NotificationsContainer';
 
 export default createStackNavigator({
 	RoomCard: {
@@ -48,9 +51,9 @@ export default createStackNavigator({
 		navigationOptions: ({navigation}: any) => ({
 			title: 'Main Office Room',
 			headerRight: (
-				<TouchableOpacity onPress={() => navigation.navigate('EditRoomCard', {roomID: navigation.getParam('roomID')})}>
+				<RoomsEditCardKebabContainer navigation={navigation}>
 					<KebabMenu width={18} height={18} />
-				</TouchableOpacity>
+				</RoomsEditCardKebabContainer>
 			),
 			headerRightContainerStyle: {paddingRight: 20},
 		})},
@@ -63,6 +66,9 @@ export default createStackNavigator({
 			headerRightContainerStyle: {paddingRight: 20},
 		}),
 	},
+	AddRoomCard: {
+		screen: RoomAddCardContainer,
+	},
 	editRoomImagesGallery: {
 		screen: RoomEditImageGalleryContainer,
 		navigationOptions: ({navigation}: any) => ({
@@ -73,9 +79,9 @@ export default createStackNavigator({
 				</TouchableOpacity>
 			),
 			headerRight: (
-				<TouchableOpacity onPress={() => console.log('sub menu')}>
+				<RoomEditImageGalleryKebabContainer navigation={navigation}>
 					<KebabMenu width={18} height={18} />
-				</TouchableOpacity>
+				</RoomEditImageGalleryKebabContainer>
 			),
 			headerRightContainerStyle: {paddingRight: 20, paddingTop: 10},
 			headerLeftContainerStyle: {paddingLeft: 30, paddingTop: 10},
