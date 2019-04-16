@@ -1,11 +1,8 @@
 import {connect} from 'react-redux';
-import {withNavigation} from 'react-navigation';
-
 import Rooms from '../components/Rooms';
-import {getRooms} from '../selectors/roomsSelectors';
 
-const mapStateToProps = (state: any) => ({
-	rooms: getRooms(state),
+const mapStateToProps = (_: any, {navigation}: any) => ({
+	roomID: navigation.getParam('roomID'),
 });
 
-export default connect(mapStateToProps)(withNavigation(Rooms as any));
+export default connect(mapStateToProps)(Rooms);

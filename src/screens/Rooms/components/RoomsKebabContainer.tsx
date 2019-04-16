@@ -8,6 +8,12 @@ const mapStateToProps = (_: any, {navigation}: any) => ({
 		icon: null,
 		isStripped: false,
 		onSelect: () => navigation.navigate('AddRoomCard'),
+	}, {
+		title: 'Change orientation',
+		id: 1,
+		icon: null,
+		isStripped: true,
+		onSelect: navigation.state.params.changeOrientation,
 	}],
 });
 

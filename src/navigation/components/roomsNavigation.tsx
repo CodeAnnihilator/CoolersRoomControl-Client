@@ -26,6 +26,8 @@ const SubmitEditForm = connect()(({dispatch}: DispatchProp) => (
 	/>
 ));
 
+const noop = () => {};
+
 export default createStackNavigator({
 	RoomCard: {
 		screen: createBottomTabNavigator({
@@ -49,7 +51,7 @@ export default createStackNavigator({
 			swipeEnabled: true,
 		}),
 		navigationOptions: ({navigation}: any) => ({
-			title: 'Main Office Room',
+			title: navigation.getParam('selectedRoomTitle'),
 			headerRight: (
 				<RoomsEditCardKebabContainer navigation={navigation}>
 					<KebabMenu width={18} height={18} />
@@ -79,7 +81,7 @@ export default createStackNavigator({
 				</TouchableOpacity>
 			),
 			headerRight: (
-				<RoomEditImageGalleryKebabContainer navigation={navigation}>
+				<RoomEditImageGalleryKebabContainer onHidden={noop}>
 					<KebabMenu width={18} height={18} />
 				</RoomEditImageGalleryKebabContainer>
 			),
@@ -97,11 +99,11 @@ export default createStackNavigator({
 					<Menu />
 				</TouchableOpacity>
 			),
-			headerRight: (
+			headerRight: navigation.state.params ? (
 				<RoomsKebabContainer navigation={navigation}>
 					<KebabMenu width={18} height={18} />
 				</RoomsKebabContainer>
-			),
+			) : null,
 			headerLeftContainerStyle: {paddingLeft: 20},
 			headerRightContainerStyle: {paddingRight: 20},
 		}),

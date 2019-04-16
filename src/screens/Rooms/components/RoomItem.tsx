@@ -10,9 +10,9 @@ import Drop from '../../../assets/images/Drop';
 
 export default class RoomItem extends Component<any> {
 	private readonly goToRoom = () => {
-		const {id, navigation} = this.props;
+		const {id, navigation, room} = this.props;
 
-		navigation.navigate('RoomCard', {roomID: id});
+		navigation.navigate('RoomCard', {roomID: id, selectedRoomTitle: room.title});
 	}
 
 	public render() {
