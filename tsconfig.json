@@ -6,6 +6,7 @@
     "jsx": "react-native",
 	"strict": true,
     "noUnusedLocals": true,
+    "strictNullChecks": true,
     "noUnusedParameters": true,
     "types": [
 	  "jest",

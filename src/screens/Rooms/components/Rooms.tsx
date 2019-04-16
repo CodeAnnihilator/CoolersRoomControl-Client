@@ -1,45 +1,29 @@
 import React from 'react';
-import {ScrollView, View, RefreshControl} from 'react-native';
+import RoomsCarouselViewContainer from '../containers/RoomsCarouselViewContainer';
+import RoomsListViewContainer from '../containers/RoomsListViewContainer';
 
-import RoomItemContainer from '../containers/RoomItemContainer';
+interface IState {
+	orientation: string;
+}
 
-export default class Rooms extends React.Component<any> {
-	public state = {
-		refreshing: false,
-	};
-
-	private readonly onRefresh = () => {
-		this.setState({refreshing: true});
-
-		new Promise(res => {
-			setTimeout(() => res(), 2000);
-		}).then(() => {
-			this.setState({refreshing: false});
+export default class Rooms extends React.Component<any, IState> {
+	public componentDidMount() {
+		this.props.navigation.setParams({
+			changeOrientation: this.changeOrientation,
 		});
 	}
 
-	public render() {
+	protected changeOrientation = () => this.setState(prevState => ({
+		orientation: prevState.orientation === 'carousel' ? 'list' : 'carousel',
+	}))
 
-		return (
-			<View>
-				<ScrollView
-					refreshControl={
-						<RefreshControl
-							refreshing={this.state.refreshing}
-							onRefresh={this.onRefresh}
-						/>
-					}
-				>
-					{
-						this.props.rooms.map(({id}: {id: string}) => (
-							<RoomItemContainer
-								key={id}
-								id={id}
-							/>
-						))
-					}
-				</ScrollView>
-			</View>
-		);
+	public state = {
+		orientation: 'carousel',
+	};
+
+	public render() {
+		return this.state.orientation === 'carousel'
+			? <RoomsCarouselViewContainer {...this.props} />
+			: <RoomsListViewContainer {...this.props} />;
 	}
 }
