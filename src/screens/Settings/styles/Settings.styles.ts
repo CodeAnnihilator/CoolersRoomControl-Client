@@ -23,7 +23,7 @@ export default EStyleSheet.create({
 		paddingVertical: 10,
 	},
 	userBoxTitle: {
-		// fontFamily: 'DIN',
+		fontFamily: 'DIN-bold',
 		fontSize: 12,
 		fontWeight: 'bold',
 		color: '$black',
