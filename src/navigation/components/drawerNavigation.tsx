@@ -1,6 +1,6 @@
 import {createDrawerNavigator} from 'react-navigation';
 
-import coolerNavigation from './coolerNavigation';
+import coolersNavigation from './coolersNavigation';
 import RoomsNavigation from './roomsNavigation';
 import schedulerNavigation from './schedulerNavigation';
 import statisticsNavigation from './statisticsNavigation';
@@ -18,7 +18,7 @@ export default createDrawerNavigator({
 		},
 	},
 	Coolers: {
-		screen: coolerNavigation,
+		screen: coolersNavigation,
 		navigationOptions: {
 			title: 'Coolers',
 		},

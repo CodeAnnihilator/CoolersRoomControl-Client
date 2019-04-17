@@ -7,6 +7,11 @@ import {createBottomTabNavigator, createStackNavigator, NavigationComponent} fro
 import Menu from '../../assets/images/Menu';
 import Arrow from '../../assets/images/Arrow';
 import KebabMenu from '../../assets/images/KebabMenu';
+
+import HeaderRightNavigator from './HeaderRightNavigation';
+
+import SaveButton from '../../common/components/SaveButton/SaveButton';
+
 import Scheduler from '../../screens/Scheduler/components/Scheduler';
 import Statistics from '../../screens/Statistics/components/Statistics';
 import RoomsContainer from '../../screens/Rooms/containers/RoomsContainer';
@@ -15,9 +20,11 @@ import Notifications from '../../screens/Rooms/containers/NotificationsContainer
 import RoomsKebabContainer from '../../screens/Rooms/components/RoomsKebabContainer';
 import RoomAddCardContainer from '../../screens/Rooms/containers/RoomAddCardContainer';
 import RoomEditRoomContainer from '../../screens/Rooms/containers/RoomEditRoomContainer';
-import RoomsEditCardKebabContainer from '../../screens/Rooms/containers/RoomsEditCardKebabContainer';
 import RoomEditImageGalleryContainer from '../../screens/Rooms/containers/RoomEditImageGalleryContainer';
 import RoomEditImageGalleryKebabContainer from '../../screens/Rooms/containers/RoomEditImageGalleryKebabContainer';
+import CoolersContainer from '../../screens/Rooms/containers/CoolersContainer';
+import CoolerCardContainer from '../../screens/Rooms/containers/CoolerCardContainer';
+import BindingCoolerContainer from '../../screens/Rooms/containers/BindingCoolerContainer';
 
 const SubmitEditForm = connect()(({dispatch}: DispatchProp) => (
 	<Button
@@ -30,12 +37,28 @@ const SubmitEditForm = connect()(({dispatch}: DispatchProp) => (
 const noop = () => {};
 
 export default createStackNavigator({
+	CoolerCardByRoom: {
+		screen: CoolerCardContainer,
+	},
+	BindingCooler: {
+		screen: BindingCoolerContainer,
+		navigationOptions: ({navigation}: any) => ({
+			headerRight: (<SaveButton navigation={navigation} />),
+			headerRightContainerStyle: {paddingRight: 20},
+		}),
+	},
 	RoomCard: {
 		screen: createBottomTabNavigator({
 			Room: {
 				screen: RoomCardContainer,
 				navigationOptions: {
 					title: 'Room',
+				},
+			},
+			CoolersAtRoom: {
+				screen: CoolersContainer,
+				navigationOptions: {
+					title: 'Coolers',
 				},
 			},
 			Scheduler: {
@@ -53,13 +76,10 @@ export default createStackNavigator({
 		}),
 		navigationOptions: ({navigation}: NavigationComponent) => ({
 			title: navigation.getParam('selectedRoomTitle'),
-			headerRight: (
-				<RoomsEditCardKebabContainer navigation={navigation}>
-					<KebabMenu width={18} height={18} />
-				</RoomsEditCardKebabContainer>
-			),
+			headerRight: <HeaderRightNavigator navigation={navigation} />,
 			headerRightContainerStyle: {paddingRight: 20},
-		})},
+		}),
+	},
 	EditRoomCard: {
 		screen: RoomEditRoomContainer,
 		navigationOptions: () => ({

@@ -1,6 +1,7 @@
 export default {
 	/* red */
 	$red100: '#FFCDD2',
+	$red500: '#EE7B7B',
 	$red700: '#D32F2F',
 	$red600: '#E53935',
 
@@ -10,6 +11,7 @@ export default {
 	$blue200: '#90CAF9',
 	$blue700: '#303F9F',
 	$blue800: '#0277BD',
+	$bluebutton: '#4B99FC',
 
 	/* cyan */
 	$cyan100: '#B2EBF2',
@@ -46,4 +48,5 @@ export default {
 	$green600: '#43A047',
 	$green800: '#2E7D32',
 	$bage: '#02C883',
+	$greenbutton: '#3AC52B',
 };

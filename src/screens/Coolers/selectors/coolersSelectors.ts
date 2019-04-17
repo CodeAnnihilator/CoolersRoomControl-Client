@@ -1,6 +1,6 @@
 import {createSelector} from 'reselect';
 
-export const getCoolers = (state: any) => state.entities.coolers;
+import {getCoolers} from '../../../common/selectors/entitiesSelectors';
 
 export const getCoolerByID = createSelector(
 	getCoolers,

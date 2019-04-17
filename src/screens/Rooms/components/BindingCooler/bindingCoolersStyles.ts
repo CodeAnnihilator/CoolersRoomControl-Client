@@ -3,9 +3,6 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 export default EStyleSheet.create({
 	container: {
 		flex: 1,
-		flexDirection: 'row',
-		alignItems: 'center',
-		justifyContent: 'space-between',
 		padding: 20,
 		borderBottomWidth: 1,
 		borderBottomColor: '$gray94',
@@ -15,26 +12,31 @@ export default EStyleSheet.create({
 		flexDirection: 'row',
 		marginBottom: 5,
 	},
-	titleWrapper: {
-		flex: 1,
-		flexDirection: 'row',
-		alignItems: 'center',
-	},
 	title: {
 		fontWeight: 'bold',
 	},
 	series: {
 		fontWeight: 'bold',
 		fontSize: 11,
+		marginBottom: 15,
 	},
-	arrow: {
-		fontSize: 25,
-		color: '$gray400',
+	button: {
+		flex: 1,
+		width: 100,
+		height: 34,
+		alignItems: 'center',
+		justifyContent: 'center',
+		borderRadius: 2,
 	},
-	bage: {
-		width: 7,
-		height: 7,
-		borderRadius: 5,
-		marginLeft: 10,
+	textButton: {
+		color: '$white',
+		fontSize: 12,
+		fontWeight: 'bold',
+	},
+	cancel: {
+		backgroundColor: '$red500',
+	},
+	bind: {
+		backgroundColor: '$bluebutton',
 	},
 });

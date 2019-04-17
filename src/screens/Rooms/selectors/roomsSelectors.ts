@@ -3,6 +3,7 @@ import R from 'ramda';
 
 import {dayInMilliseconds} from '../../../common/constants/entities';
 import {dateInUnix, startOfDay} from '../../../common/utils/entities';
+import {getCoolers} from '../../../common/selectors/entitiesSelectors';
 
 export const getRooms = (state: any) => state.rooms.rooms;
 export const getNotificationsByRooms = (state: any) => state.rooms.notificationsByRooms;
@@ -81,4 +82,21 @@ export const getElsByDay = createSelector(
 
 			return R.filter(filterDates, sortDates);
 		}),
+);
+
+export const getCoolersByRoom = createSelector(
+	getCoolers,
+	(_: any, id: number) => id,
+	(coolers, id) => coolers.filter((el: any) => el.roomID === id),
+);
+
+export const getCoolerByID = createSelector(
+	getCoolers,
+	(_: any, id: number) => id,
+	(coolers, id) => coolers.find((el: any) => el.id === id) || {},
+);
+
+export const getFreeCoolers = createSelector(
+	getCoolers,
+	coolers => coolers.filter((el: any) => el.roomID === null),
 );
