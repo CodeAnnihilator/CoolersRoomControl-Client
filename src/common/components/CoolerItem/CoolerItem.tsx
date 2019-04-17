@@ -1,9 +1,10 @@
 import React, {PureComponent, ReactText} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 
-import Power from '../../../../assets/images/Power';
+import Power from '../../../assets/images/Power';
+import ControlArrow from '../../../assets/images/ControlArrow';
 
-import colors from '../../../../common/constants/colors';
+import colors from '../../../common/constants/colors';
 import styles from './coolerItemStyles';
 
 interface ICoolerItemProps {
@@ -13,14 +14,24 @@ interface ICoolerItemProps {
 		title: string;
 		series: string;
 		status: string;
+		roomID: number | null;
 	};
 	onPress: (id: ReactText) => void;
 }
 
 export default class CoolerItem extends PureComponent<ICoolerItemProps> {
-	public render() {
+	protected onPress = () => {
 		const {cooler, onPress} = this.props;
-		const {id, power, title, series, status} = cooler;
+
+		return onPress(cooler.id);
+	}
+
+	public render() {
+		const {
+			cooler: {
+				power, title, series, status, roomID,
+			},
+		} = this.props;
 
 		const statusColor = (status === 'active' ?
 			colors['$green600'] : status === 'off' ?
@@ -30,7 +41,7 @@ export default class CoolerItem extends PureComponent<ICoolerItemProps> {
 		return (
 			<TouchableOpacity
 				style={styles.container}
-				onPress={() => onPress(id)}
+				onPress={this.onPress}
 			>
 				<View>
 					<View style={styles.powerWrapper}>
@@ -44,9 +55,13 @@ export default class CoolerItem extends PureComponent<ICoolerItemProps> {
 						<View style={[styles.bage, {backgroundColor: statusColor}]} />
 					</View>
 					<Text style={styles.series}>{series}</Text>
+					<Text style={styles.title}>
+						<Text>Room: </Text>
+						{roomID !== null ? roomID : 'No Room'}
+					</Text>
 				</View>
 				<View>
-					<Text style={styles.arrow}>&#707;</Text>
+					<ControlArrow width={15} height={15} fill={colors['$gray400']} direction='right'	/>
 				</View>
 			</TouchableOpacity>
 		);

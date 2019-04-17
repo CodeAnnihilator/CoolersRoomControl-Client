@@ -2,23 +2,11 @@ import React, {ReactText, Component} from 'react';
 import {ScrollView} from 'react-native';
 import {NavigationComponent} from 'react-navigation';
 
-import CoolerItem from './components/CoolerItem/CoolerItem';
+import {ICooler} from '../../screens/Rooms/types/Cooler';
+
+import CoolerItem from '../../common/components/CoolerItem/CoolerItem';
 
 import styles from './coolersStyles';
-
-interface ICooler {
-	id: number;
-	power: string;
-	title: string;
-	series: string;
-	status: string;
-	room: string;
-	place: string;
-	source: string;
-	type: string;
-	certification: string;
-	cop: string;
-}
 
 interface IProps {
 	coolers: ICooler[];

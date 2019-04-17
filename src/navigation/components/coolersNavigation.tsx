@@ -17,7 +17,7 @@ export default createStackNavigator({
 	Coolers: {
 		screen: Coolers,
 		navigationOptions: ({navigation}: NavigationComponent) => ({
-			title: 'Rooms',
+			title: 'Coolers',
 			headerLeft: () => (
 				<TouchableOpacity onPress={navigation.openDrawer}>
 					<Menu />

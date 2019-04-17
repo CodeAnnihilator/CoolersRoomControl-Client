@@ -1,11 +1,11 @@
 import {connect} from 'react-redux';
 
-import {getCoolers} from '../selectors/coolersSelectors';
+import {getCoolers} from '../../../common/selectors/entitiesSelectors';
 
-import Cooler from '../Coolers';
+import Coolers from '../Coolers';
 
 const mapStateToProps = (state: any) => ({
 		coolers: getCoolers(state),
 });
 
-export default connect(mapStateToProps)(Cooler);
+export default connect(mapStateToProps)(Coolers);
