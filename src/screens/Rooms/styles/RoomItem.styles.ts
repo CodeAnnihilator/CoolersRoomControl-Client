@@ -13,7 +13,7 @@ export default EStyleSheet.create({
 	roomBoxTitle: {
 		padding: 8,
 		fontSize: 15,
-		fontWeight: 'bold',
+		fontFamily: 'DIN-bold',
 	},
 	roomBoxInfo: {
 		flexDirection: 'row',
