@@ -33,5 +33,5 @@ export default EStyleSheet.create({
 	},
 	imagesGalleryImage: {
 		paddingHorizontal: 15,
-	}
+	},
 });

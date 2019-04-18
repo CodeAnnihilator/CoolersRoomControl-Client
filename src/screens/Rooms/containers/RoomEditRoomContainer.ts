@@ -1,5 +1,6 @@
 import {connect} from 'react-redux';
 import {reduxForm, getFormValues} from 'redux-form';
+import {batchActions} from 'redux-batched-actions';
 
 import {getRoomByID} from '../selectors/roomsSelectors';
 import {getTemperatureScale} from '../../Settings/selectors/settingsSelectors';
@@ -21,12 +22,15 @@ const mapStateToProps = (state: any, {navigation}: any) => {
 	});
 };
 
-const mergeProps = (stateProps: any, dispatchProps: any) => ({
+const mergeProps = (stateProps: any, dispatchProps: any, {navigation}: any) => ({
 	...stateProps,
 	...dispatchProps,
-	onSubmit: () => dispatchProps.editDataAtRoom(stateProps.roomID, stateProps.formValues),
+	onSubmit: () => batchActions([
+		dispatchProps.editDataAtRoom(stateProps.roomID, stateProps.formValues),
+		navigation.goBack(),
+	]),
 });
 
 export default connect(mapStateToProps, {editDataAtRoom}, mergeProps)(reduxForm({
 	form: 'editRoom',
-})(RoomEditRoom));
+})(RoomEditRoom as any));
