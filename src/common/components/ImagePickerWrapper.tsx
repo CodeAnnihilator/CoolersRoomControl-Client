@@ -1,6 +1,8 @@
+import uniqueID from 'lodash.uniqueid';
 import React, {PureComponent} from 'react';
-import {View, ImageBackground, TouchableOpacity, StyleSheet} from 'react-native';
 import {ImagePicker, Permissions} from 'expo';
+import {View, ImageBackground, TouchableOpacity, StyleSheet} from 'react-native';
+
 import PhotoCamera from '../../assets/images/PhotoCamera';
 
 const styles = StyleSheet.create({
@@ -31,13 +33,16 @@ export default class ImagePickerWrapper extends PureComponent<any> {
 	private readonly pickImage = async () => {
 		await this.askPermissions();
 
-		let result = await ImagePicker.launchImageLibraryAsync({
+		const result = await ImagePicker.launchImageLibraryAsync({
 			allowsEditing: true,
 			aspect: [4, 3],
-		});
+		}) as any;
 
 		if (!result.cancelled) {
-			this.props.onChange(result.uri);
+			this.props.onChange('temporaryImages', (fieldValue: any) => fieldValue
+				? ([...fieldValue, {id: uniqueID(), image: result.uri}])
+				: [{id: uniqueID(), image: result.uri}],
+			);
 		}
 	}
 

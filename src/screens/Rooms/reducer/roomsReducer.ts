@@ -1,4 +1,6 @@
+import R from 'ramda';
 import {handleActions} from 'redux-actions';
+
 import {
 	CHANGE_TEMPERATURE_AT_ROOM,
 	CHOOSE_IMAGE_GALLERY_ITEM,
@@ -148,13 +150,19 @@ const roomsReducer = handleActions({
 			return item;
 		}),
 	}),
-	[EDIT_DATA_AT_ROOM]: (state: any, {payload: {data, roomID}}) => ({
+	[EDIT_DATA_AT_ROOM]: (state: any, {payload: {roomID, data}}) => ({
 		...state,
 		rooms: state.rooms.map((item: any) => {
+			console.log(R.omit(['temporaryImages'], data));
+
 			if (item.id === roomID) {
 				return {
 					...item,
-					...data,
+					...R.omit(['temporaryImages'], data),
+					images: data.temporaryImages ? [
+						...item.images,
+						...data.temporaryImages.map((item: {image: string}) => item.image),
+					] : item.images,
 				};
 			}
 

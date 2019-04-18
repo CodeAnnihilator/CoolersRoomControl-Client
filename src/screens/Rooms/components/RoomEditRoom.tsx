@@ -1,5 +1,5 @@
 import React from 'react';
-import {ScrollView, View, Text} from 'react-native';
+import {ScrollView, View, Text, Image, TouchableOpacity} from 'react-native';
 import {Field} from 'redux-form';
 
 import styles from '../styles/RoomEditRoom.styles';
@@ -7,6 +7,9 @@ import styles from '../styles/RoomEditRoom.styles';
 import ImagePicker from '../../../common/components/ImagePickerWrapper';
 import ReduxFormInput from '../../../common/components/reduxForm/reduxFormInput';
 import RoomEditRoomImageContainer from '../containers/RoomEditRoomImageContainer';
+import Remove from '../../../assets/images/Remove';
+import {SCREEN_WIDTH} from '../../../common/constants/constants';
+import RoomEditRoomTempImage from './RoomEditRoomTempImage';
 
 interface IRoomsProps {
 	room: {
@@ -16,7 +19,7 @@ interface IRoomsProps {
 
 export default class RoomEditRoom extends React.Component<IRoomsProps> {
 	public render() {
-		const {room: {images}} = this.props;
+		const {room: {images}, change} = this.props;
 
 		return (
 			<ScrollView>
@@ -42,9 +45,29 @@ export default class RoomEditRoom extends React.Component<IRoomsProps> {
 					<View>
 						<Field
 							name='uri'
-							component={({input: {value, onChange}}: any) => (
-								<ImagePicker uri={value} onChange={onChange} />
+							change={change}
+							component={({input: {value}, change}: any) => (
+								<ImagePicker uri={value} onChange={change} />
 							)}
+							style={styles.editRoomItemContent}
+						/>
+					</View>
+					<View>
+						<Field
+							name='temporaryImages'
+							change={change}
+							component={({input: {value}}: any) => (
+								value
+									? value.map((item: any, index: number) => (
+										<RoomEditRoomTempImage
+											key={index}
+											item={item}
+											onPress={change}
+										/>
+									))
+									: null
+								)
+							}
 							style={styles.editRoomItemContent}
 						/>
 					</View>
