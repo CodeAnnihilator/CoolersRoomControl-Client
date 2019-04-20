@@ -1143,7 +1143,7 @@
   dependencies:
     "@types/jest-diff" "*"
 
-"@types/lodash.uniqueid@^4.0.6":
+"@types/lodash.uniqueid@4.0.6":
   version "4.0.6"
   resolved "https://registry.yarnpkg.com/@types/lodash.uniqueid/-/lodash.uniqueid-4.0.6.tgz#63f1354f9193896f77e4510d4b7bc763d1479b9a"
   integrity sha512-WXXsDm7Q1SiAeCG9ubCiDxOuLEDi5x+Crx8SgwTFgBtofATwK1jAeSbGz2bHlfqWezi7mcjynenlBFCeDLhHlw==
@@ -5722,7 +5722,7 @@ lodash.throttle@^4.1.1:
   resolved "https://registry.yarnpkg.com/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
   integrity sha1-wj6RtxAkKscMN/HhzaknTMOb8vQ=
 
-lodash.uniqueid@^4.0.1:
+lodash.uniqueid@4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/lodash.uniqueid/-/lodash.uniqueid-4.0.1.tgz#3268f26a7c88e4f4b1758d679271814e31fa5b26"
   integrity sha1-MmjyanyI5PSxdY1nknGBTjH6WyY=

@@ -1,6 +1,15 @@
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 export default EStyleSheet.create({
+	parentContainer: {
+		flex: 1,
+		alignItems: 'center',
+		justifyContent: 'space-between',
+	},
+	sliderContainer: {
+		width: 200,
+		height: 40,
+	},
 	container: {
 		alignItems: 'center',
 		justifyContent: 'center',
@@ -10,6 +19,12 @@ export default EStyleSheet.create({
 		justifyContent: 'center',
 		marginRight: 20,
 		flexDirection: 'row',
+	},
+	text: {
+		paddingTop: 20,
+		fontSize: 18,
+		fontFamily: 'DIN-bold',
+		alignSelf: 'flex-start',
 	},
 	title: {
 		fontSize: 18,
@@ -30,14 +45,6 @@ export default EStyleSheet.create({
 	},
 	description: {
 		marginVertical: 20,
-	},
-	dotsStyle: {
-		width: 5,
-		height: 5,
-		borderRadius: 5,
-		marginHorizontal: 5,
-		padding: 0,
-		backgroundColor: 'rgba(0, 0, 0, 0.92)',
 	},
 	roomButton: {
 		height: 60,

@@ -17,7 +17,7 @@ const store = configureStore({});
 const AppContainer = createAppContainer(AppNavigator);
 
 interface IAppState {
-	fontLoaded: boolean,
+	fontLoaded: boolean;
 }
 
 export default class App extends React.Component<{}, IAppState> {
