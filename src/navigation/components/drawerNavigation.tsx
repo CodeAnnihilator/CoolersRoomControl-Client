@@ -54,6 +54,6 @@ export default createDrawerNavigator({
 		},
 	},
 }, {
-	initialRouteName: 'Rooms',
+	initialRouteName: 'Scheduler', // return Rooms later
 	contentComponent: SideBar,
 });

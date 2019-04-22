@@ -45,7 +45,7 @@ class SideBar extends PureComponent<any> {
 				/>
 				<NavEl
 					title='Schedule'
-					onPress={this.navigateToScreen('Schedule')}
+					onPress={this.navigateToScreen('Scheduler')}
 					ImageComponent={ScheduleImg}
 					isActive={index === 2}
 					isNotification={true}
