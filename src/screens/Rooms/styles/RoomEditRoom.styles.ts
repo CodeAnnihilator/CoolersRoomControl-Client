@@ -10,7 +10,7 @@ export default EStyleSheet.create({
 	},
 	editRoomItemTitle: {
 		fontSize: 12,
-		color: '#505050',
+		color: '$dimgray',
 	},
 	editRoomItemContent: {
 		fontSize: 14,
