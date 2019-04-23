@@ -1,6 +1,6 @@
 import React, {ReactText, Component} from 'react';
 import {ScrollView} from 'react-native';
-import {NavigationScreenProps, NavigationComponent} from 'react-navigation';
+import {NavigationComponent} from 'react-navigation';
 
 import CoolerItem from './components/CoolerItem/CoolerItem';
 

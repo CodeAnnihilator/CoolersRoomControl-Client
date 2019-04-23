@@ -20,6 +20,7 @@ export const getPowerAtRoom = createSelector(
 		const room = rooms.find((item: any) => item.id === id);
 
 		if (room) {
+			//tslint:disable-next-line
 			return room.coolers.reduce((memo: number, item: {power: number}) => memo = memo + item.power, 0);
 		}
 

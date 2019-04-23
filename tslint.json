@@ -29,7 +29,7 @@
 		"no-duplicate-switch-case": true,
 		"no-duplicate-super": true,
 		"no-parameter-reassignment": true,
-		"no-non-null-assertion": true,
+		"no-non-null-assertion": false,
 		"no-magic-numbers": false,
 		"no-shadowed-variable": false,
 		"no-internal-module": true,

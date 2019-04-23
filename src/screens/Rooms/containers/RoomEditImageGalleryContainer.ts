@@ -7,7 +7,6 @@ import {getRoomImagesByID, getChoosenImageAtRoom} from '../selectors/roomsSelect
 
 import ImageGallery from '../../../common/components/ImageGallery';
 
-
 const mapStateToProps = (state: any, {navigation}: NavigationComponent) => {
 	const roomID = navigation.getParam('roomID');
 	const images = getRoomImagesByID(state, roomID);

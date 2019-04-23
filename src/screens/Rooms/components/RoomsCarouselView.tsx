@@ -22,7 +22,7 @@ interface IProps {
 	temperatureScale: string;
 }
 
-export default class RoomsCarouselView extends React.Component<IProps, IState> {
+export default class RoomsCarouselView extends React.Component<Partial<IProps>, IState> {
 
 	public state = {
 		activeSlide: 0,
