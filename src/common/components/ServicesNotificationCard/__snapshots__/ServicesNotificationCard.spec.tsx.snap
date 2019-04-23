@@ -1282,7 +1282,8 @@ exports[`ServicesNotificationCard +++capturing Snapshot of ServicesNotificationC
     </View>
     <View>
       <Text>
-        time
+        timeFrom
+         - timeTo
       </Text>
       <Text>
         <Text>

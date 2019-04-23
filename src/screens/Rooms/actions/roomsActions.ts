@@ -6,9 +6,11 @@ import {
 	CHOOSE_IMAGE_GALLERY_ITEM,
 	SAVE_COOLERS,
 	BIND_COOLERS_TO_ROOM,
+	EDIT_EVENT_FOR_ROOM,
+	CREATE_EVENT_FOR_ROOM,
 } from '../constants/roomsConstants';
 
-import {ICooler, ISelectedCooler} from '../types/Cooler';
+import {ICooler, ISelectedCooler} from '../../../common/types/entitiesTypes';
 
 export const changeTemperatureAtRoom = createAction(
 	CHANGE_TEMPERATURE_AT_ROOM,
@@ -38,4 +40,14 @@ export const saveCoolers = createAction(
 export const bindCoolers = createAction(
 	BIND_COOLERS_TO_ROOM,
 	(coolers: ICooler[]) => ({coolers}),
+);
+
+export const editEventForRoom = createAction(
+	EDIT_EVENT_FOR_ROOM,
+	(roomID: number, data: {[key: string]: any}) => ({roomID, data}),
+);
+
+export const createEventForRoom = createAction(
+	CREATE_EVENT_FOR_ROOM,
+	(roomID: number, data: {[key: string]: any}) => ({roomID, data}),
 );

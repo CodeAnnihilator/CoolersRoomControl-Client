@@ -5,34 +5,21 @@ import dayjs from 'dayjs';
 import NotificationCard from '../NotificationCard/NotificationCard';
 import ServicesNotificationCard from '../ServicesNotificationCard/ServicesNotificationCard';
 
+import {INotification} from '../../../common/types/entitiesTypes';
+
 import styles from './notificationsTemplateStyles';
 
-interface INotification {
-	id: number;
-	type: string;
-	date: string;
-	time: string;
-	operation?: string;
-	temperature?: string;
-	humidity?: string;
-	weekly?: boolean;
-	description?: string;
-	message?: string;
-	model?: string;
-	serial?: string;
-	roomId: number;
-}
-
 interface IProps {
-	notifications: any;
+	notifications: INotification[][];
 	dates: number[];
+	editEvent: any;
 }
 
 class Notifications extends Component<IProps> {
 	public renderContent = (notification: INotification) => {
 		switch (notification.type) {
 			case 'notification': {
-				return <NotificationCard notification={notification} key={notification.id} />;
+				return <NotificationCard notification={notification} key={notification.id} editEvent={this.props.editEvent} />;
 			}
 			case 'servicesNotification': {
 				return <ServicesNotificationCard notification={notification} key={notification.id} />;

@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 
-import {ICooler, ISelectedCooler} from '../../types/Cooler';
+import {ICooler, ISelectedCooler} from '../../../../common/types/entitiesTypes';
 
 import Power from '../../../../assets/images/Power';
 

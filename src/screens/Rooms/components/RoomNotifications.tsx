@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {NavigationComponent} from 'react-navigation';
 
-import {INotification} from '../../common/types/entitiesTypes';
-import NotificationsTemplate from '../../common/components/NotificationsTemplate/NotificationsTemplate';
+import {INotification} from '../../../common/types/entitiesTypes';
+import NotificationsTemplate from '../../../common/components/NotificationsTemplate/NotificationsTemplate';
 
 interface IProps {
 	dates: number[];
@@ -13,8 +13,9 @@ interface IProps {
 class Notifications extends Component<IProps> {
 	protected editEvent = (notification: INotification) => {
 		const {navigation} = this.props;
+		const roomID = navigation.getParam('roomID');
 
-		return navigation.navigate('EditEvent', {notification});
+		return navigation.navigate('RoomEditEvent', {notification, roomID});
 	}
 
 	public render() {

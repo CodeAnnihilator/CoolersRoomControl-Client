@@ -11,34 +11,39 @@ describe('Notifications', () => {
 				id: 1,
 				type: 'type',
 				date: 'date',
-				time: 'time',
+				timeFrom: 'timeFrom',
+				timeTo: 'timeTo',
 				operation: 'operation',
-				temperature: 'temperature',
-				humidity: 'humidity',
-				weekly: true,
+				temperature: 20,
+				humidity: 35,
+				weekly: 'weekly',
 				description: 'description',
 				message: 'message',
 				model: 'model',
 				serial: 'serial',
-				roomId: 1,
+				roomID: 1,
 			}],
 			[{
 				id: 1,
 				type: 'type',
 				date: 'date',
-				time: 'time',
+				timeFrom: 'timeFrom',
+				timeTo: 'timeTo',
 				operation: 'operation',
-				temperature: 'temperature',
-				humidity: 'humidity',
-				weekly: true,
+				temperature: 25,
+				humidity: 40,
+				weekly: 'weekly',
 				description: 'description',
 				message: 'message',
 				model: 'model',
 				serial: 'serial',
-				roomId: 1,
+				roomID: 1,
 			}],
 		];
-		const renderedValue =  renderer.create(<Notifications dates={dates} notifications={notifications} />).toJSON();
+		const navigation = {};
+		const renderedValue = renderer.create(
+			<Notifications dates={dates} notifications={notifications} navigation={navigation} />,
+		).toJSON();
 
 		expect(renderedValue).toMatchSnapshot();
 });

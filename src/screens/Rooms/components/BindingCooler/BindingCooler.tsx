@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {NavigationComponent} from 'react-navigation';
 import {ScrollView} from 'react-native';
 
-import {ICooler, ISelectedCooler} from '../../types/Cooler';
+import {ICooler, ISelectedCooler} from '../../../../common/types/entitiesTypes';
 
 import BindingCoolerItem from './BindingCoolerItem';
 

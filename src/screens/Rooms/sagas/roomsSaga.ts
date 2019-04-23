@@ -1,6 +1,6 @@
 import {put, select, takeLatest} from 'redux-saga/effects';
 
-import {ICooler, ISelectedCooler} from '../../../screens/Rooms/types/Cooler';
+import {ICooler, ISelectedCooler} from '../../../common/types/entitiesTypes';
 
 import {SAVE_COOLERS} from '../constants/roomsConstants';
 

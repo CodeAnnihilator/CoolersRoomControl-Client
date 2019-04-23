@@ -25,10 +25,26 @@ import RoomEditImageGalleryKebabContainer from '../../screens/Rooms/containers/R
 import CoolersContainer from '../../screens/Rooms/containers/CoolersContainer';
 import CoolerCardContainer from '../../screens/Rooms/containers/CoolerCardContainer';
 import BindingCoolerContainer from '../../screens/Rooms/containers/BindingCoolerContainer';
+import RoomEditEventContainer from '../../screens/Rooms/containers/RoomEditEventContainer';
+import RoomCreateEventContainer from '../../screens/Rooms/containers/RoomCreateEventContainer';
 
 const SubmitEditForm = connect()(({dispatch}: DispatchProp) => (
 	<Button
 		onPress={() => dispatch(submit('editRoom'))}
+		title='Save'
+	/>
+));
+
+const SubmitEditEventForm = connect()(({dispatch}: DispatchProp) => (
+	<Button
+		onPress={() => dispatch(submit('RoomEditEvent'))}
+		title='Save'
+	/>
+));
+
+const SubmitCreateEventForm = connect()(({dispatch}: DispatchProp) => (
+	<Button
+		onPress={() => dispatch(submit('RoomCreateEvent'))}
 		title='Save'
 	/>
 ));
@@ -77,6 +93,21 @@ export default createStackNavigator({
 		navigationOptions: ({navigation}: NavigationComponent) => ({
 			title: navigation.getParam('selectedRoomTitle'),
 			headerRight: <HeaderRightNavigator navigation={navigation} />,
+			headerRightContainerStyle: {paddingRight: 20},
+		})},
+	RoomEditEvent: {
+		screen: RoomEditEventContainer,
+		navigationOptions: () => ({
+			title: 'Edit Event',
+			headerRight: <SubmitEditEventForm />,
+			headerRightContainerStyle: {paddingRight: 20},
+		}),
+	},
+	RoomCreateEvent: {
+		screen: RoomCreateEventContainer,
+		navigationOptions: () => ({
+			title: 'Create Event',
+			headerRight: <SubmitCreateEventForm />,
 			headerRightContainerStyle: {paddingRight: 20},
 		}),
 	},

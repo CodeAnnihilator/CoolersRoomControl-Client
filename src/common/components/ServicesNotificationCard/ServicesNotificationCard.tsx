@@ -5,28 +5,16 @@ import colors from '../../constants/colors';
 
 import FanImage from '../../../assets/images/Fan';
 
+import {INotification} from '../../../common/types/entitiesTypes';
+
 import styles from './servicesNotificationCardStyles';
 
 interface IProps {
-	notification: {
-		id: number;
-		type: string;
-		date: string;
-		time: string;
-		operation?: string;
-		temperature?: string;
-		humidity?: string;
-		weekly?: boolean;
-		description?: string;
-		message?: string;
-		model?: string;
-		serial?: string;
-		roomId: number;
-	};
+	notification: INotification;
 }
 
 const ServicesNotificationCard: React.FC<IProps> = ({notification}) => {
-	const {time, message, model, serial, roomId} = notification;
+	const {timeFrom, timeTo, message, model, serial, roomID} = notification;
 
 	return(
 			<View style={styles.contentWrapper}>
@@ -35,14 +23,14 @@ const ServicesNotificationCard: React.FC<IProps> = ({notification}) => {
 						<FanImage fill={colors['$black']} width={28} height={28} />
 					</View>
 					<View style={styles.infoWrapper}>
-						<Text style={styles.time}>{time}</Text>
+						<Text style={styles.time}>{timeFrom}{timeTo ? ` - ${timeTo}` : null }</Text>
 						<Text style={styles.textWrapper}>
 							<Text style={styles.textBold}>Message: </Text>
 							{message}
 						</Text>
 						<Text style={styles.textWrapper}>
 							<Text style={styles.textBold}>Room: </Text>
-							{roomId}
+							{roomID}
 						</Text>
 						<Text style={styles.textWrapper}>
 							<Text style={styles.textBold}>Model: </Text>

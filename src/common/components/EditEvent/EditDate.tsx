@@ -1,37 +1,34 @@
 import React, {PureComponent} from 'react';
 import {TextInput} from 'react-native';
 import {WrappedFieldProps} from 'redux-form';
+import dayjs from 'dayjs';
 
 interface IReduxFormInput {
 	placeholder?: string;
 	style?: object | null;
-	multiline?: boolean;
 }
 
-export default class ReduxFormInput extends PureComponent<WrappedFieldProps & IReduxFormInput> {
+export default class RoomEditDate extends PureComponent<WrappedFieldProps & IReduxFormInput> {
 	public static readonly defaultProps = {
 		placeholder: 'Type something',
 		style: null,
-		multiline: false,
 	};
 
-	private readonly onInputChange = (value: string) => this.props.input.onChange(value);
+	private readonly onInputChange = (value: string) => this.props.input.onChange(new Date(value));
 
 	public render() {
 		const {
 			input: {value},
 			style,
 			placeholder,
-			multiline,
 		} = this.props;
 
 		return (
 			<TextInput
 				style={style}
 				onChangeText={this.onInputChange}
-				value={value.toString()}
+				value={value ? dayjs(value).format('MMM DD, YYYY') : ''}
 				placeholder={placeholder}
-				multiline={multiline}
 			/>
 		);
 	}

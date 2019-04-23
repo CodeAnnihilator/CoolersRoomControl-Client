@@ -2,6 +2,12 @@ import React from 'react';
 import Svg, {Path, G} from 'react-native-svg';
 
 /* tslint:disable */
+const directions = {
+	left: 180,
+	right: 0,
+	up: 270,
+	down: 90,
+}
 
 interface IProps {
 	fill?: string;
@@ -16,7 +22,7 @@ const ControlArrow: React.FC<IProps> = ({fill = '#000', onPress, direction, widt
 		width={width}
 		height={height}
 		viewBox="0 0 451.846 451.847"
-		style={{transform: [{ rotate: `${direction === 'left' ? 180 : 0}deg`}]}}
+		style={{transform: [{ rotate: `${directions[direction]}deg`}]}}
 	>
 		<G>
 			<Path

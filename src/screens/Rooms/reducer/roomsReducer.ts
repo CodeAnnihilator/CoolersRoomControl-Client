@@ -1,11 +1,15 @@
 import R from 'ramda';
 import {handleActions} from 'redux-actions';
 
+import {INotification} from '../../../common/types/entitiesTypes';
+
 import {
 	CHANGE_TEMPERATURE_AT_ROOM,
 	CHOOSE_IMAGE_GALLERY_ITEM,
 	CHANGE_HUMIDITY_AT_ROOM,
 	EDIT_DATA_AT_ROOM,
+	EDIT_EVENT_FOR_ROOM,
+	CREATE_EVENT_FOR_ROOM,
 } from '../constants/roomsConstants';
 
 import images from './rooms.images.mock';
@@ -176,6 +180,41 @@ export const roomsReducer = handleActions({
 					...item,
 					choosenImage: image,
 				};
+			}
+
+			return item;
+		}),
+	}),
+	[EDIT_EVENT_FOR_ROOM]: (state: any, {payload: {roomID, data}}) => ({
+		...state,
+		notificationsByRooms: state.notificationsByRooms.map((item: any) => {
+			if (item.id === roomID) {
+				return ({
+					...item,
+					data: item.data.map((elem: INotification) => {
+						if (elem.id === data.id) {
+							return ({
+								...elem,
+								...data,
+							});
+						}
+
+						return elem;
+					}),
+				});
+			}
+
+			return item;
+		}),
+	}),
+	[CREATE_EVENT_FOR_ROOM]: (state: any, {payload: {roomID, data}}) => ({
+		...state,
+		notificationsByRooms: state.notificationsByRooms.map((item: any) => {
+			if (item.id === roomID) {
+				return ({
+					...item,
+					data: [...item.data, data],
+				});
 			}
 
 			return item;

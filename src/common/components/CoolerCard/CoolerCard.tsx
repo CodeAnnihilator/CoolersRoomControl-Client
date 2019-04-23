@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {View, Text, ScrollView} from 'react-native';
 
-import {ICooler} from '../../../screens/Rooms/types/Cooler';
+import {ICooler} from '../../types/entitiesTypes';
 
 import styles from './coolerCardStyles';
 

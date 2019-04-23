@@ -2,7 +2,7 @@ import React, {ReactText, Component} from 'react';
 import {NavigationComponent} from 'react-navigation';
 import {ScrollView, Text} from 'react-native';
 
-import {ICooler} from '../../types/Cooler';
+import {ICooler} from '../../../../common/types/entitiesTypes';
 
 import CoolerItem from '../../../../common/components/CoolerItem/CoolerItem';
 

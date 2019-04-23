@@ -1,8 +1,10 @@
-import React from 'react';
-import {View, Text, Image} from 'react-native';
+import React, {Component} from 'react';
+import {View, Text, Image, TouchableOpacity} from 'react-native';
 import cn from 'react-native-classnames';
 
 import colors from '../../../common/constants/colors';
+
+import {INotification} from '../../../common/types/entitiesTypes';
 
 import generateName from 'sillyname';
 
@@ -12,35 +14,36 @@ import Drop from '../../../assets/images/Drop';
 import styles from './notificationCardStyles';
 
 interface IProps {
-	notification: {
-		id: number;
-		type: string;
-		date: string;
-		time: string;
-		operation?: string;
-		temperature?: string;
-		humidity?: string;
-		weekly?: boolean;
-		description?: string;
-		message?: string;
-		model?: string;
-		serial?: string;
-		roomId: number;
-	};
+	notification: INotification;
+	editEvent: (notification: INotification) => void;
 }
 
 const randomName = generateName();
 const URI = 'http://i.pravatar.cc/200';
 
-const NotificationsCard: React.FC<IProps> = ({notification}) => {
-	const {time, operation, temperature, humidity, weekly, description, roomId} = notification;
+class NotificationsCard extends Component<IProps> {
+	protected editEvent = () => {
+		const {editEvent, notification} = this.props;
 
-	return(
-			<View style={styles.contentWrapper}>
+		return editEvent(notification);
+	}
+
+	public	render() {
+		const {
+			notification: {
+				timeFrom, timeTo, operation, temperature, humidity, weekly, description, roomID,
+			},
+		} = this.props;
+
+		return (
+			<TouchableOpacity
+				style={styles.contentWrapper}
+				onPress={this.editEvent}
+			>
 				<View style={styles.userInfo}>
 					<Image style={styles.image} source={{uri: URI}} />
 					<View style={styles.info}>
-						<Text style={styles.time}>{time}</Text>
+						<Text style={styles.time}>{timeFrom}{timeTo ? ` - ${timeTo}` : null }</Text>
 						<Text style={styles.textWrapper}>
 							<Text style={styles.textBold}>Manager: </Text>
 							{randomName}
@@ -58,22 +61,22 @@ const NotificationsCard: React.FC<IProps> = ({notification}) => {
 						</Text>
 						<Text style={styles.textWrapper}>
 							<Text style={styles.textBold}>Room: </Text>
-							{roomId}
+							{roomID}
 						</Text>
 					</View>
 				</View>
 				<View style={styles.indicatorWrapper}>
 					<View style={styles.thermometer}>
 						<Thermometer fill={colors['$black']} width={20} height={20} />
-						<Text style={styles.textIndicator}>{temperature}</Text>
+						<Text style={styles.textIndicator}>+{temperature} C</Text>
 					</View>
 					<View style={styles.drop}>
 						<Drop fill={colors['$black']} width={20} height={20} />
-						<Text style={styles.textIndicator}>{humidity}</Text>
+						<Text style={styles.textIndicator}>{humidity} %</Text>
 					</View>
 					<View style={styles.bageWrapper}>
 						{
-							weekly ? (
+							weekly === 'Repeat' ? (
 								<View style={styles.bageWeekly}>
 									<Text style={styles.bageText}>WEEKLY</Text>
 								</View>
@@ -91,8 +94,9 @@ const NotificationsCard: React.FC<IProps> = ({notification}) => {
 						</View>
 					) : null
 				}
-			</View>
-	);
-};
+			</TouchableOpacity>
+		);
+	}
+}
 
 export default NotificationsCard;

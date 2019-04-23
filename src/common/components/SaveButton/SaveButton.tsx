@@ -13,7 +13,7 @@ const SaveButton = connect()(({dispatch, navigation}: any) => {
 
 	const onPress = () => {
 		dispatch(saveCoolers(coolers, roomID));
-		navigation.navigate('CoolersAtRoom', {roomID: navigation.getParam('roomID')});
+		navigation.goBack();
 	};
 
 	return (

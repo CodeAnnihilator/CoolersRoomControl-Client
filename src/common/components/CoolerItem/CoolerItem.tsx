@@ -1,7 +1,7 @@
 import React, {PureComponent, ReactText} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 
-import {ICooler} from '../../../screens/Rooms/types/Cooler';
+import {ICooler} from '../../types/entitiesTypes';
 
 import Power from '../../../assets/images/Power';
 import ControlArrow from '../../../assets/images/ControlArrow';

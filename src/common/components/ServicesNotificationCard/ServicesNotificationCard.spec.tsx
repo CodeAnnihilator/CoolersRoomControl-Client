@@ -9,11 +9,12 @@ describe('ServicesNotificationCard', () => {
 			id: 1,
 			type: 'type',
 			date: 'date',
-			time: 'time',
+			timeFrom: 'timeFrom',
+			timeTo: 'timeTo',
 			message: 'message',
 			model: 'model',
 			serial: 'serial',
-			roomId: 1,
+			roomID: 1,
 		};
 		const renderedValue = renderer.create(<ServicesNotificationCard notification={notification} />).toJSON();
 

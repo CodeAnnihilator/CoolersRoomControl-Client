@@ -44,7 +44,7 @@ export const getChoosenImageAtRoom = createSelector(
 export const getNotificationsByRoom = createSelector(
 	getNotificationsByRooms,
 	(_: any, id: number) => id,
-	(notifications, id) => notifications.filter((notification: any) => notification.id === id)[0] || {},
+	(notifications, id) => notifications.find((notification: any) => notification.id === id) || {},
 );
 
 export const getArrDates = createSelector(

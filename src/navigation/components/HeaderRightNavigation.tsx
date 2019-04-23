@@ -13,6 +13,10 @@ const HeaderRightNavigator = ({navigation}: NavigationComponent) => {
 			<TouchableOpacity onPress={() => navigation.navigate('BindingCooler', {roomID: navigation.getParam('roomID')})}>
 				<Plus width={32} height={32} />
 			</TouchableOpacity>);
+		case(4): return (
+			<TouchableOpacity onPress={() => navigation.navigate('RoomCreateEvent', {roomID: navigation.getParam('roomID')})}>
+				<Plus width={32} height={32} />
+			</TouchableOpacity>);
 		default: return (
 			<RoomsEditCardKebabContainer navigation={navigation}>
 				<KebabMenu width={18} height={18} />
