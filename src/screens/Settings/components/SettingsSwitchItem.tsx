@@ -4,7 +4,7 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 import SettingsSwitchItemInterface from '../types/SettingsSwitchItem';
 
 const styles = EStyleSheet.create({
-	switch: {
+	'switch': {
 		alignItems: 'center',
 		justifyContent: 'space-between',
 		flexDirection: 'row',

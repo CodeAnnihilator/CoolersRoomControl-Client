@@ -13,6 +13,7 @@ const ImagePickerRenderer: React.FC<any> = ({input: {value, onChange}}) => (
 	<ImagePicker uri={value} onChange={onChange} />);
 
 export default class Settings extends React.PureComponent<any> {
+	//tslint:disable-next-line
 	public render() {
 
 		return (

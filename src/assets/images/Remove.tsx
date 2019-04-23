@@ -4,9 +4,9 @@ import Svg, {Path} from 'react-native-svg';
 /* tslint:disable */
 
 interface IProps {
-	fill: string;
-	width: number;
-	height: number;
+	fill?: string;
+	width?: number;
+	height?: number;
 }
 
 const Remove: React.FC<IProps> = ({fill, width, height}) => (

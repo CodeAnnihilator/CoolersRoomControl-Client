@@ -8,4 +8,4 @@ const mapStateToProps = (state: any) => ({
 	dates: sortByUniqueDate(state),
 });
 
-export default connect(mapStateToProps)(Notifications);
+export default connect(mapStateToProps)(Notifications as any);

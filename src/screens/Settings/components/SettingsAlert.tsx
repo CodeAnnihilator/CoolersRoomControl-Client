@@ -15,6 +15,6 @@ const SettingsAlert = (closeAlert: () => void)  => Alert.alert(
 		},
 	],
 	{cancelable: false},
-)
+);
 
 export default SettingsAlert;
