@@ -1,5 +1,8 @@
 import React from 'react';
 import {View, Text, Image} from 'react-native';
+import cn from 'react-native-classnames';
+
+import colors from '../../../common/constants/colors';
 
 import generateName from 'sillyname';
 
@@ -44,7 +47,14 @@ const NotificationsCard: React.FC<IProps> = ({notification}) => {
 						</Text>
 						<Text style={styles.textWrapper}>
 							<Text style={styles.textBold}>Operation: </Text>
-							<Text style={{color: operation === 'Scheduled' ? '#1ca36e' : '#2582e2'}}>{operation}</Text>
+							<Text
+								style={cn(styles, {
+									['scheduled']: operation === 'Scheduled',
+									['manually']: operation === 'Manually',
+								})}
+							>
+								{operation}
+							</Text>
 						</Text>
 						<Text style={styles.textWrapper}>
 							<Text style={styles.textBold}>Room: </Text>
@@ -54,11 +64,11 @@ const NotificationsCard: React.FC<IProps> = ({notification}) => {
 				</View>
 				<View style={styles.indicatorWrapper}>
 					<View style={styles.thermometer}>
-						<Thermometer fill='#000' width={20} height={20} />
+						<Thermometer fill={colors['$black']} width={20} height={20} />
 						<Text style={styles.textIndicator}>{temperature}</Text>
 					</View>
 					<View style={styles.drop}>
-						<Drop fill='#000' width={20} height={20} />
+						<Drop fill={colors['$black']} width={20} height={20} />
 						<Text style={styles.textIndicator}>{humidity}</Text>
 					</View>
 					<View style={styles.bageWrapper}>

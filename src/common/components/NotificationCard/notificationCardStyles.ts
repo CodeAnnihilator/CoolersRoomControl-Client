@@ -76,4 +76,10 @@ export default EStyleSheet.create({
 	textWrapper: {
 		fontSize: 12,
 	},
+	scheduled: {
+		color: '$bage',
+	},
+	manually: {
+		color: '$blue500',
+	},
 });

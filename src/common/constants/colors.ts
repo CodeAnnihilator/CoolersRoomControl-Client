@@ -8,6 +8,7 @@ export default {
 	$blue50: '#E3F2FD',
 	$blue100: '#BBDEFB',
 	$blue200: '#90CAF9',
+	$blue500: '#03A9F4',
 	$blue700: '#303F9F',
 	$blue800: '#0277BD',
 
@@ -24,6 +25,7 @@ export default {
 	$gray400: '#BDBDBD',
 	$gray600: '#757575',
 	$gray800: '#424242',
+	$dimgray: '#505050',
 
 	/* white */
 	$white: '#FFFFFF',

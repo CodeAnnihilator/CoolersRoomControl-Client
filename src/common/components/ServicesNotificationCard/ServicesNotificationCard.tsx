@@ -1,6 +1,8 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 
+import colors from '../../constants/colors';
+
 import FanImage from '../../../assets/images/Fan';
 
 import styles from './servicesNotificationCardStyles';
@@ -30,7 +32,7 @@ const ServicesNotificationCard: React.FC<IProps> = ({notification}) => {
 			<View style={styles.contentWrapper}>
 				<View style={styles.servicesInfo}>
 					<View style={styles.imageWrapper}>
-						<FanImage fill='#000' width={28} height={28} />
+						<FanImage fill={colors['$black']} width={28} height={28} />
 					</View>
 					<View style={styles.infoWrapper}>
 						<Text style={styles.time}>{time}</Text>

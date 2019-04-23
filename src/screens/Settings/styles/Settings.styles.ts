@@ -37,7 +37,7 @@ export default EStyleSheet.create({
 	},
 	userInfoTitle: {
 		fontSize: 10,
-		color: '#505050',
+		color: '$dimgray',
 	},
 	userInfoAttribute: {
 		fontWeight: 'bold',
