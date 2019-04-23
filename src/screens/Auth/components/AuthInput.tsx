@@ -1,6 +1,7 @@
-import React, {Component} from 'react'
+import React, {Component, ReactNode} from 'react';
 import {View, Text, TextInput} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
+import {WrappedFieldProps} from 'redux-form';
 
 const styles = EStyleSheet.create({
 	container: {
@@ -20,7 +21,11 @@ const styles = EStyleSheet.create({
 	},
 });
 
-export default class AuthInput extends Component<any> {
+interface IProps {
+	header: ReactNode | string;
+}
+
+export default class AuthInput extends Component<WrappedFieldProps & IProps> {
 
 	private readonly onInputChange = (value: string) => this.props.input.onChange({value});
 

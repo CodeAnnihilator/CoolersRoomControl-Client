@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {NavigationComponent} from 'react-navigation';
 import {View, Text, TouchableOpacity} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
@@ -52,7 +53,16 @@ const styles = EStyleSheet.create({
 	},
 });
 
-export default class RoomCardComponent extends Component<any> {
+interface IProps {
+	navigation: NavigationComponent;
+	changeTemperatureAtRoom: (roomID: string, type: string) => void;
+	changeHumidityAtRoom: (roomID: string, type: string) => void;
+	tempScale: string;
+	powerSumAtRoom: number;
+	item: any;
+}
+
+export default class RoomCardComponent extends Component<IProps> {
 
 private readonly incrementTemperatureAtRoom = () => {
 	const {navigation, changeTemperatureAtRoom} = this.props;

@@ -3,7 +3,11 @@ import Svg, {Path, G} from 'react-native-svg';
 
 /* tslint:disable */
 
-const CarApiConditioning: React.FC<any> = ({fill}) => (
+interface IProps {
+	fill: string;
+}
+
+const CarApiConditioning: React.FC<IProps> = ({fill}) => (
 	<Svg width={24} height={24} viewBox='0 0 512 512'>
 		<G>
 			<G>

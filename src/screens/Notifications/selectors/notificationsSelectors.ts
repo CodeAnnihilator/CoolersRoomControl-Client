@@ -1,3 +1,4 @@
+import {ReactText} from 'react';
 import {createSelector} from 'reselect';
 import R from 'ramda';
 
@@ -26,7 +27,7 @@ export const uniqDateInUnix = createSelector(
 export const sortByUniqueDate = createSelector(
 	uniqDateInUnix,
 	dates => {
-		const sortByDate = (a: any, b: any) => new Date(b).getTime() - new Date(a).getTime();
+		const sortByDate = (a: ReactText, b: ReactText) => new Date(b).getTime() - new Date(a).getTime();
 
 		return R.sort(sortByDate, dates);
 	},
@@ -36,7 +37,8 @@ export const getElsByDay = createSelector(
 	[getNotifications, sortByUniqueDate],
 	(notifications, dates) =>
 		dates.map(date => {
-			const sortByDate = (a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime();
+			const sortByDate = (a: {date: ReactText}, b: {date: ReactText}) =>
+				new Date(b.date).getTime() - new Date(a.date).getTime();
 			const filterDates = (el: any) => dateInUnix(el) >= date && dateInUnix(el) < (date + dayInMilliseconds);
 			const sortDates = R.sort(sortByDate, notifications);
 

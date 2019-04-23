@@ -3,7 +3,13 @@ import Svg, {Path, Rect, G} from 'react-native-svg';
 
 /* tslint:disable */
 
-const Notifications: React.FC<any> = ({fill, width = 22, height = 22}) => (
+interface IProps {
+	fill: string;
+	width: number;
+	height: number;
+}
+
+const Notifications: React.FC<IProps> = ({fill, width = 22, height = 22}) => (
 <Svg width={width} height={height} viewBox='0 0 47.834 47.834'>
 	<G fill={fill}>
 		<G>

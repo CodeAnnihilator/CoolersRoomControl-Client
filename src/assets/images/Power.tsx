@@ -3,7 +3,13 @@ import Svg, {Path} from 'react-native-svg';
 
 /* tslint:disable */
 
-const Power: React.FC<any> = ({fill, width, height}) => (
+interface IProps {
+	fill: string;
+	width: number;
+	height: number;
+}
+
+const Power: React.FC<IProps> = ({fill, width, height}) => (
 	<Svg width={width} height={height} viewBox="0 0 238.126 238.126">
 		<Path fill={fill} d="M205.071,98.678c-1.194-2.728-3.891-4.49-6.869-4.49h-62.33l30.023-84.167c1.197-3.357-0.134-7.094-3.184-8.938
 			c-3.052-1.845-6.979-1.287-9.395,1.333L34.411,131.355c-2.019,2.189-2.551,5.366-1.355,8.094c1.194,2.728,3.891,4.49,6.869,4.49

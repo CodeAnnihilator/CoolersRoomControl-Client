@@ -5,6 +5,12 @@ import {Field} from 'redux-form';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import pinWheelLogo from '../../../assets/pinwheel.png';
 import validationRules from '../validation/validation';
+import {NavigationComponent} from 'react-navigation';
+
+interface IProps {
+	navigation: NavigationComponent;
+	valid: boolean;
+}
 
 const styles = EStyleSheet.create({
 	container: {
@@ -31,38 +37,42 @@ const styles = EStyleSheet.create({
 	},
 });
 
-const Auth: React.FC<any> = ({navigation: {navigate}, valid}) => (
-	<KeyboardAvoidingView style={styles.container} behavior='padding' enabled>
-		<View style={styles.titleBox}>
-			<Text style={styles.font}>CL</Text>
-			<Image
-				style={styles.img}
-				source={pinWheelLogo}
+const Auth: React.FC<IProps> = ({navigation: {navigate}, valid}) => {
+	const navigateToApp = () => navigate('App');
+
+	return (
+		<KeyboardAvoidingView style={styles.container} behavior='padding' enabled>
+			<View style={styles.titleBox}>
+				<Text style={styles.font}>CL</Text>
+				<Image
+					style={styles.img}
+					source={pinWheelLogo}
+				/>
+				<Text style={styles.font}>MAX</Text>
+			</View>
+			<Field
+				name='username'
+				component={AuthInput}
+				header='Username:'
+				validate={validationRules.required}
 			/>
-			<Text style={styles.font}>MAX</Text>
-		</View>
-		<Field
-			name='username'
-			component={AuthInput}
-			header='Username:'
-			validate={validationRules.required}
-		/>
-		<Field
-			name='password'
-			component={AuthInput}
-			header='Password:'
-			validate={validationRules.required}
-		/>
-		<Field
-			name='email'
-			component={AuthInput}
-			header='Email:'
-			validate={[validationRules.required]}
-		/>
-		<View style={styles.button}>
-			<Button title='Login' onPress={() => navigate('App')} disabled={!valid}/>
-		</View>
-	</KeyboardAvoidingView>
-);
+			<Field
+				name='password'
+				component={AuthInput}
+				header='Password:'
+				validate={validationRules.required}
+			/>
+			<Field
+				name='email'
+				component={AuthInput}
+				header='Email:'
+				validate={[validationRules.required]}
+			/>
+			<View style={styles.button}>
+				<Button title='Login' onPress={navigateToApp} disabled={!valid}/>
+			</View>
+		</KeyboardAvoidingView>
+	);
+};
 
 export default Auth;

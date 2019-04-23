@@ -1,6 +1,7 @@
 import {connect} from 'react-redux';
 import {reduxForm, getFormValues} from 'redux-form';
 import {batchActions} from 'redux-batched-actions';
+import {NavigationComponent} from 'react-navigation';
 
 import {getRoomByID} from '../selectors/roomsSelectors';
 import {getTemperatureScale} from '../../Settings/selectors/settingsSelectors';
@@ -9,7 +10,7 @@ import {editDataAtRoom} from '../actions/roomsActions';
 
 import RoomEditRoom from '../components/RoomEditRoom';
 
-const mapStateToProps = (state: any, {navigation}: any) => {
+const mapStateToProps = (state: any, {navigation}: NavigationComponent) => {
 	const roomID = navigation.getParam('roomID');
 	const room = getRoomByID(state, roomID);
 
@@ -22,7 +23,7 @@ const mapStateToProps = (state: any, {navigation}: any) => {
 	});
 };
 
-const mergeProps = (stateProps: any, dispatchProps: any, {navigation}: any) => ({
+const mergeProps = (stateProps: any, dispatchProps: any, {navigation}: NavigationComponent) => ({
 	...stateProps,
 	...dispatchProps,
 	onSubmit: () => batchActions([

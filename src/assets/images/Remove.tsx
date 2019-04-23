@@ -3,7 +3,13 @@ import Svg, {Path} from 'react-native-svg';
 
 /* tslint:disable */
 
-const Remove: React.FC<any> = ({fill, width, height}) => (
+interface IProps {
+	fill: string;
+	width: number;
+	height: number;
+}
+
+const Remove: React.FC<IProps> = ({fill, width, height}) => (
 	<Svg
 		height={height}
 		viewBox="1 1 512 512"

@@ -1,5 +1,5 @@
 import React, {PureComponent} from 'react';
-import {NavigationActions} from 'react-navigation';
+import {NavigationActions, NavigationComponent, DrawerItemsProps} from 'react-navigation';
 import {View} from 'react-native';
 
 import HousePlanScaleImg from '../../assets/images/HousePlanScale';
@@ -17,9 +17,13 @@ import Devider from './components/Devider/Devider';
 
 import styles from './sideBarStyles';
 
-class SideBar extends PureComponent<any> {
+interface IProps {
+	navigation: NavigationComponent;
+}
 
-	private readonly navigateToScreen = (route: any) => () => {
+class SideBar extends PureComponent<IProps & DrawerItemsProps> {
+
+	private readonly navigateToScreen = (route: string) => () => {
 		const navigateAction = NavigationActions.navigate({routeName: route});
 		this.props.navigation.dispatch(navigateAction);
 	}
