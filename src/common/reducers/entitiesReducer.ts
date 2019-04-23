@@ -8,7 +8,7 @@ const INITIAL_STATE = {
 	value: 0,
 };
 
-const entitiesReducer = (state = INITIAL_STATE, action: any) => {
+const entitiesReducer = (state = INITIAL_STATE, action: {type: string}) => {
 	switch (action.type) {
 		case types.INCREMENT_VALUE:
 			return {...state, value: state.value + 1};

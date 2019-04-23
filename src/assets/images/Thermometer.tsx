@@ -3,7 +3,13 @@ import Svg, {Path, G, Rect, Circle} from 'react-native-svg';
 
 /* tslint:disable */
 
-const Thermometer: React.FC<any> = ({fill, width, height}) => (
+interface IProps {
+	fill?: string;
+	width?: number;
+	height?: number;
+}
+
+const Thermometer: React.FC<IProps> = ({fill, width, height}) => (
 	<Svg width={width} height={height} viewBox='0 0 512 512'>
 		<Path fill={fill} d='M341.333,288.593V85.333C341.333,38.205,303.128,0,256,0s-85.333,38.205-85.333,85.333v203.259
 			C144.48,312.03,128,346.091,128,384c0,70.693,57.308,128,128,128s128-57.307,128-128C384,346.091,367.52,312.03,341.333,288.593z

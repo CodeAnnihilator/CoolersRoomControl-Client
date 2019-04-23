@@ -3,7 +3,15 @@ import Svg, {Path, G} from 'react-native-svg';
 
 /* tslint:disable */
 
-const ControlArrow: React.FC<any> = ({fill = '#000', onPress, direction, width = 24, height = 24}) => (
+interface IProps {
+	fill?: string;
+	onPress?: () => void;
+	direction: 'up' | 'down' | 'left' | 'right';
+	width?: number;
+	height?: number;
+}
+
+const ControlArrow: React.FC<IProps> = ({fill = '#000', onPress, direction, width = 24, height = 24}) => (
 	<Svg
 		width={width}
 		height={height}

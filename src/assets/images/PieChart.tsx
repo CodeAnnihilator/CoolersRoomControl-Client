@@ -3,7 +3,11 @@ import Svg, {Path, G} from 'react-native-svg';
 
 /* tslint:disable */
 
-const PieChart: React.FC<any> = ({fill}) => (
+interface IProps {
+	fill: string;
+}
+
+const PieChart: React.FC<IProps> = ({fill}) => (
 	<Svg width={24} height={24} viewBox='0 0 33 33'>
 		<G fill={fill}>
 			<Path d='M16.5,32.996c-4.225,0-8.45-1.608-11.667-4.825C1.716,25.054,0,20.911,0,16.504S1.716,7.953,4.833,4.837

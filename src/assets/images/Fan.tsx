@@ -3,7 +3,13 @@ import Svg, {Path, G} from 'react-native-svg';
 
 /* tslint:disable */
 
-const Fan: React.FC<any> = ({fill, width, height}) => (
+interface IProps {
+	fill: string;
+	width: number;
+	height: number;
+}
+
+const Fan: React.FC<IProps> = ({fill, width, height}) => (
 	<Svg width={width} height={height} viewBox='0 0 512 512'>
 		<G>
 			<G>

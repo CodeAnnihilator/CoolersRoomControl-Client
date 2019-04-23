@@ -3,7 +3,13 @@ import Svg, {Path} from 'react-native-svg';
 
 /* tslint:disable */
 
-const RoomBox: React.FC<any> = ({fill, width, height}) => (
+interface IProps {
+	fill: string;
+	width: number;
+	height: number;
+}
+
+const RoomBox: React.FC<IProps> = ({fill, width, height}) => (
 	<Svg width={width} height={height} viewBox="0 -13 511.99989 511">
 		<Path
 			fill={fill}

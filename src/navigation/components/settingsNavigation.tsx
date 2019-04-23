@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {createStackNavigator} from 'react-navigation';
+import {createStackNavigator, NavigationComponent} from 'react-navigation';
 
 import SettingsContainer from '../../screens/Settings/containers/SettingsContainer';
 
@@ -10,7 +10,7 @@ import {TouchableOpacity, Button} from 'react-native';
 export default createStackNavigator({
 	Settings: {
 		screen: SettingsContainer,
-		navigationOptions: ({navigation}: any) => ({
+		navigationOptions: ({navigation}: NavigationComponent) => ({
 			title: 'SETTINGS',
 			headerLeft: () => (
 				<TouchableOpacity onPress={navigation.openDrawer}>

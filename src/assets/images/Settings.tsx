@@ -3,7 +3,11 @@ import Svg, {Path, G} from 'react-native-svg';
 
 /* tslint:disable */
 
-const Clock: React.FC<any> = ({fill}) => (
+interface IProps {
+	fill: string;
+}
+
+const Settings: React.FC<IProps> = ({fill}) => (
 	<Svg width={24} height={24} viewBox='0 0 478.703 478.703'>
 		<G>
 			<Path fill={fill} d="M454.2,189.101l-33.6-5.7c-3.5-11.3-8-22.2-13.5-32.6l19.8-27.7c8.4-11.8,7.1-27.9-3.2-38.1l-29.8-29.8
@@ -33,4 +37,4 @@ const Clock: React.FC<any> = ({fill}) => (
 	</Svg>
 );
 
-export default Clock;
+export default Settings;

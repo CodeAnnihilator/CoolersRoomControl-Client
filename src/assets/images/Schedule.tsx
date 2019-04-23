@@ -3,7 +3,11 @@ import Svg, {Path, G, Ellipse} from 'react-native-svg';
 
 /* tslint:disable */
 
-const Schedule: React.FC<any> = ({fill}) => (
+interface IProps {
+	fill: string;
+}
+
+const Schedule: React.FC<IProps> = ({fill}) => (
 	<Svg width={24} height={24} viewBox='0 0 64 64'>
 		<G>
 			<G fill={fill}>

@@ -3,8 +3,9 @@ import RoomCardComponent from '../components/RoomCardComponent';
 import {getRoomByID, getPowerAtRoom} from '../selectors/roomsSelectors';
 import {getTemperatureScale} from '../../Settings/selectors/settingsSelectors';
 import {changeTemperatureAtRoom, changeHumidityAtRoom} from '../actions/roomsActions';
+import {NavigationComponent} from 'react-navigation';
 
-const mapStateToProps = (state: any, {navigation}: any) => {
+const mapStateToProps = (state: any, {navigation}: NavigationComponent) => {
 	const roomID = navigation.getParam('roomID');
 
 	return {

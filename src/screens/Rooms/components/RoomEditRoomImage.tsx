@@ -2,10 +2,11 @@ import React, {PureComponent} from 'react';
 import {Image, View, TouchableOpacity} from 'react-native';
 
 import styles from '../styles/RoomEditRoom.styles';
+import {NavigationComponent} from 'react-navigation';
 
 interface IRoomEditRoomImageProps {
 	image: string;
-	navigation: any;
+	navigation: NavigationComponent;
 	chooseItemAtGallery: (roomID: string, image: string) => void;
 }
 

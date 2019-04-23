@@ -1,3 +1,5 @@
-export const dateInUnix = (date: any) => new Date(date.date).getTime();
+import {ReactText} from 'react';
 
-export const startOfDay = (now: any) => new Date(now.getFullYear(), now.getMonth(), now.getDate());
+export const dateInUnix = (date: {date: ReactText}) => new Date(date.date).getTime();
+
+export const startOfDay = (now: Date) => new Date(now.getFullYear(), now.getMonth(), now.getDate());

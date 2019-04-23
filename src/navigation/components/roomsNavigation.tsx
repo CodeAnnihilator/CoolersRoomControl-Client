@@ -2,7 +2,7 @@ import React from 'react';
 import {submit} from 'redux-form';
 import {connect, DispatchProp} from 'react-redux';
 import {TouchableOpacity, Button} from 'react-native';
-import {createBottomTabNavigator, createStackNavigator} from 'react-navigation';
+import {createBottomTabNavigator, createStackNavigator, NavigationComponent} from 'react-navigation';
 
 import Menu from '../../assets/images/Menu';
 import Arrow from '../../assets/images/Arrow';
@@ -26,6 +26,7 @@ const SubmitEditForm = connect()(({dispatch}: DispatchProp) => (
 	/>
 ));
 
+//tslint:disable-next-line
 const noop = () => {};
 
 export default createStackNavigator({
@@ -50,7 +51,7 @@ export default createStackNavigator({
 			initialRouteName: 'Room',
 			swipeEnabled: true,
 		}),
-		navigationOptions: ({navigation}: any) => ({
+		navigationOptions: ({navigation}: NavigationComponent) => ({
 			title: navigation.getParam('selectedRoomTitle'),
 			headerRight: (
 				<RoomsEditCardKebabContainer navigation={navigation}>
@@ -73,7 +74,7 @@ export default createStackNavigator({
 	},
 	editRoomImagesGallery: {
 		screen: RoomEditImageGalleryContainer,
-		navigationOptions: ({navigation}: any) => ({
+		navigationOptions: ({navigation}: NavigationComponent) => ({
 			title: null,
 			headerLeft: () => (
 				<TouchableOpacity onPress={() => navigation.goBack()}>
@@ -92,7 +93,7 @@ export default createStackNavigator({
 	},
 	Rooms: {
 		screen: RoomsContainer,
-		navigationOptions: ({navigation}: any) => ({
+		navigationOptions: ({navigation}: NavigationComponent) => ({
 			title: 'Rooms',
 			headerLeft: () => (
 				<TouchableOpacity onPress={navigation.openDrawer}>

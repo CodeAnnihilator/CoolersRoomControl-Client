@@ -6,7 +6,15 @@ import Notification from './Notification/Notification';
 
 import styles from './navElStyles';
 
-const NavEl: React.FC<any> = ({
+interface IProps {
+	title: string;
+	ImageComponent: any;
+	onPress?: () => void;
+	isActive?: boolean;
+	isNotification?: boolean;
+}
+
+const NavEl: React.FC<IProps> = ({
 	title,
 	ImageComponent,
 	onPress,

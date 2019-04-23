@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, ReactText} from 'react';
 import {Image, Text, View, Button} from 'react-native';
 
 import styles from '../styles/RoomItem.styles';
@@ -7,8 +7,15 @@ import {getTemperatureAtSystem} from '../../../utils/temperatureAtSystem';
 
 import Thermometer from '../../../assets/images/Thermometer';
 import Drop from '../../../assets/images/Drop';
+import {NavigationComponent} from 'react-navigation';
 
-export default class RoomItem extends Component<any> {
+interface IProps {
+	id: ReactText;
+	navigation: NavigationComponent;
+	room: any;
+}
+
+export default class RoomItem extends Component<IProps> {
 	private readonly goToRoom = () => {
 		const {id, navigation, room} = this.props;
 

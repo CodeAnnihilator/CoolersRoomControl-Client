@@ -3,7 +3,11 @@ import Svg, {Path, G} from 'react-native-svg';
 
 /* tslint:disable */
 
-const Logout: React.FC<any> = ({fill}) => (
+interface IProps {
+	fill: string;
+}
+
+const Logout: React.FC<IProps> = ({fill}) => (
 	<Svg width={24} height={24} viewBox='0 0 512.001 512.001'>
 		<G>
 			<G>

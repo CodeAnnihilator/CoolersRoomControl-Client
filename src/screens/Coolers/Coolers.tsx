@@ -1,6 +1,6 @@
 import React, {ReactText, Component} from 'react';
 import {ScrollView} from 'react-native';
-import {NavigationScreenProps} from 'react-navigation';
+import {NavigationScreenProps, NavigationComponent} from 'react-navigation';
 
 import CoolerItem from './components/CoolerItem/CoolerItem';
 
@@ -20,7 +20,12 @@ interface ICooler {
 	cop: string;
 }
 
-export default class Coolers extends Component<any, NavigationScreenProps> {
+interface IProps {
+	coolers: ICooler[];
+	navigation: NavigationComponent;
+}
+
+export default class Coolers extends Component<IProps> {
 
 	protected onPress = (id: ReactText) =>
 		this.props.navigation.navigate('CoolerCard', {id})

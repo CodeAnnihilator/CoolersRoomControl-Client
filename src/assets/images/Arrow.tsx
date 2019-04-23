@@ -11,10 +11,10 @@ const directions = {
 }
 
 interface IArrow {
-	fill?: string,
-	width?: number | string,
-	height?: number | string,
-	direction?: string,
+	fill?: string;
+	width?: number | string;
+	height?: number | string;
+	direction: 'up' | 'down' | 'left' | 'right';
 }
 
 const Arrow: React.FC<IArrow> = ({fill, width, height, direction}) => (

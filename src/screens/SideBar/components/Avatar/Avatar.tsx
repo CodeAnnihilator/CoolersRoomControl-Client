@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {ReactNode} from 'react';
 import {Text, View, Image} from 'react-native';
 
 import generateName from 'sillyname';
@@ -9,7 +9,13 @@ const randomEmail = generateRandomEmail();
 
 import styles from './avatarStyles';
 
-const Avatar: React.FC<any> = ({
+interface IProps {
+	title?: string;
+	ImageComponent?: ReactNode;
+	onPress?: () => void;
+}
+
+const Avatar: React.FC<Partial<IProps>> = ({
 	title,
 	ImageComponent,
 	onPress,

@@ -3,7 +3,13 @@ import Svg, {Path, G} from 'react-native-svg';
 
 /* tslint:disable */
 
-const Menu: React.FC<any> = ({fill, width = 32, height = 32}) => (
+interface IProps {
+	fill?: string;
+	width?: number;
+	height?: number;
+}
+
+const Menu: React.FC<IProps> = ({fill, width = 32, height = 32}) => (
 	<Svg width={width} height={height} viewBox='0 0 56 56'>
 		<G>
 			<Path d='M28,0C12.561,0,0,12.561,0,28s12.561,28,28,28s28-12.561,28-28S43.439,0,28,0z M28,54C13.663,54,2,42.336,2,28

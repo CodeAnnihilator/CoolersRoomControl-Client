@@ -3,7 +3,11 @@ import Svg, {Path} from 'react-native-svg';
 
 /* tslint:disable */
 
-const HousePlanScale: React.FC<any> = ({fill}) => (
+interface IProps {
+	fill: string;
+}
+
+const HousePlanScale: React.FC<IProps> = ({fill}) => (
 	<Svg width={24} height={24} viewBox='0 0 151.91 151.91'>
 		<Path
 			fill={fill}

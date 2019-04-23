@@ -1,5 +1,5 @@
 import React from 'react';
-import {createStackNavigator} from 'react-navigation';
+import {createStackNavigator, NavigationComponent} from 'react-navigation';
 import {TouchableOpacity} from 'react-native';
 
 import Menu from '../../assets/images/Menu';
@@ -16,7 +16,7 @@ export default createStackNavigator({
 	},
 	Coolers: {
 		screen: Coolers,
-		navigationOptions: ({navigation}: any) => ({
+		navigationOptions: ({navigation}: NavigationComponent) => ({
 			title: 'Rooms',
 			headerLeft: () => (
 				<TouchableOpacity onPress={navigation.openDrawer}>

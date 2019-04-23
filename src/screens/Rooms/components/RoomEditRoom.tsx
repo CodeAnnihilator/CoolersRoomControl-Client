@@ -1,5 +1,5 @@
 import React from 'react';
-import {ScrollView, View, Text, Image, TouchableOpacity} from 'react-native';
+import {ScrollView, View, Text} from 'react-native';
 import {Field} from 'redux-form';
 
 import styles from '../styles/RoomEditRoom.styles';
@@ -7,14 +7,13 @@ import styles from '../styles/RoomEditRoom.styles';
 import ImagePicker from '../../../common/components/ImagePickerWrapper';
 import ReduxFormInput from '../../../common/components/reduxForm/reduxFormInput';
 import RoomEditRoomImageContainer from '../containers/RoomEditRoomImageContainer';
-import Remove from '../../../assets/images/Remove';
-import {SCREEN_WIDTH} from '../../../common/constants/constants';
 import RoomEditRoomTempImage from './RoomEditRoomTempImage';
 
 interface IRoomsProps {
 	room: {
 		images: string[];
 	};
+	change: () => void;
 }
 
 export default class RoomEditRoom extends React.Component<IRoomsProps> {
