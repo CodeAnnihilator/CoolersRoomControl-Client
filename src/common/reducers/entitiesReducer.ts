@@ -14,7 +14,7 @@ const initialState = {
 const entitiesReducer = handleActions({
 	[types.INCREMENT_VALUE]: (state: any) => ({
 		...state,
-		value: state.value + 1,
+		value: parseInt(state.value, 10) + 1,
 	}),
 	[BIND_COOLERS_TO_ROOM]: (state: any, {payload: {coolers}}) => ({
 		...state,

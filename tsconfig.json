@@ -7,11 +7,12 @@
 	"strict": true,
     "noUnusedLocals": true,
     "strictNullChecks": true,
-    "noUnusedParameters": true,
+	"noUnusedParameters": true,
+	"esModuleInterop": true,
     "types": [
 	  "jest",
 	  "node",
-    ]
+	],
   },
   "exclude": ["./node_modules", "./src/global.d"]
 }

@@ -20,17 +20,20 @@ interface IAppState {
 	fontLoaded: boolean;
 }
 
+export const asyncLoadingFonts = async () => {
+	await Font.loadAsync({
+		'DIN': require('../assets/fonts/D-DIN.ttf'),
+		'DIN-bold': require('../assets/fonts/D-DIN-Bold.ttf'),
+	});
+};
+
 export default class App extends React.Component<{}, IAppState> {
 	public state = {
 		fontLoaded: false,
 	};
 
 	public async componentDidMount() {
-		await Font.loadAsync({
-			'DIN': require('../assets/fonts/D-DIN.ttf'),
-			'DIN-bold': require('../assets/fonts/D-DIN-Bold.ttf'),
-		});
-
+		await asyncLoadingFonts();
 		this.setState({fontLoaded: true});
 	}
 
