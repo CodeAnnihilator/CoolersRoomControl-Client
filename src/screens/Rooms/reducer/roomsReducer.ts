@@ -12,7 +12,7 @@ import images from './rooms.images.mock';
 
 import {generateNotificationsByRoom} from '../../../common/seed/entities';
 
-const initialState = {
+export const initialState = {
 	rooms: [
 		{
 			id: 0,
@@ -123,7 +123,7 @@ const initialState = {
 	notificationsByRooms: generateNotificationsByRoom(5),
 };
 
-const roomsReducer = handleActions({
+export const roomsReducer = handleActions({
 	[CHANGE_TEMPERATURE_AT_ROOM]: (state: any, {payload: {type, roomID}}) => ({
 		...state,
 		rooms: state.rooms.map((item: any) => {
@@ -153,7 +153,6 @@ const roomsReducer = handleActions({
 	[EDIT_DATA_AT_ROOM]: (state: any, {payload: {roomID, data}}) => ({
 		...state,
 		rooms: state.rooms.map((item: any) => {
-			console.log(R.omit(['temporaryImages'], data));
 
 			if (item.id === roomID) {
 				return {

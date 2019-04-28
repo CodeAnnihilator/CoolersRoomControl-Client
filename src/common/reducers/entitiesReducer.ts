@@ -5,7 +5,7 @@ import {BIND_COOLERS_TO_ROOM} from '../../screens/Rooms/constants/roomsConstants
 
 import {arrCoolers} from '../seed/entities';
 
-const initialState = {
+export const initialState = {
 	rooms: [],
 	coolers: arrCoolers,
 	value: 0,

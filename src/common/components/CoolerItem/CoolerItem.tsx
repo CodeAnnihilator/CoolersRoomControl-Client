@@ -1,25 +1,20 @@
 import React, {PureComponent, ReactText} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 
+import {ICooler} from '../../../screens/Rooms/types/Cooler';
+
 import Power from '../../../assets/images/Power';
 import ControlArrow from '../../../assets/images/ControlArrow';
 
 import colors from '../../../common/constants/colors';
 import styles from './coolerItemStyles';
 
-interface ICoolerItemProps {
-	cooler: {
-		id: number;
-		power: string;
-		title: string;
-		series: string;
-		status: string;
-		roomID: number | null;
-	};
+interface IProps {
+	cooler: ICooler;
 	onPress: (id: ReactText) => void;
 }
 
-export default class CoolerItem extends PureComponent<ICoolerItemProps> {
+export default class CoolerItem extends PureComponent<IProps> {
 	protected onPress = () => {
 		const {cooler, onPress} = this.props;
 
