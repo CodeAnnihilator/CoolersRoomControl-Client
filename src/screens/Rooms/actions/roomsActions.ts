@@ -22,7 +22,7 @@ export const changeHumidityAtRoom = createAction(
 
 export const editDataAtRoom = createAction(
 	EDIT_DATA_AT_ROOM,
-	(roomID: string, data: string) => ({roomID, data}),
+	(roomID: string, data: {[key: string]: any}) => ({roomID, data}),
 );
 
 export const chooseItemAtGallery = createAction(
@@ -32,10 +32,10 @@ export const chooseItemAtGallery = createAction(
 
 export const saveCoolers = createAction(
 	SAVE_COOLERS,
-	(coolers: ISelectedCooler, roomID: string) => ({coolers, roomID}),
+	(coolers: ISelectedCooler[], roomID: number) => ({coolers, roomID}),
 );
 
 export const bindCoolers = createAction(
 	BIND_COOLERS_TO_ROOM,
-	(coolers: ICooler) => ({coolers}),
+	(coolers: ICooler[]) => ({coolers}),
 );
