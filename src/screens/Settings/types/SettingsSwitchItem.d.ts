@@ -1,9 +1,9 @@
-interface SettingsSwitchItemInterface {
-	type: string,
-	index: number,
-	switchesArrayLength: number,
-	temperatureScale: string,
-	changeTemperatureScale: (temperatureScale: string) => void
+interface ISettingsSwitchItemInterface {
+	type: string;
+	index: number;
+	switchesArrayLength: number;
+	temperatureScale: string;
+	changeTemperatureScale: (temperatureScale: string) => void;
 }
 
-export default SettingsSwitchItemInterface;
+export default ISettingsSwitchItemInterface;

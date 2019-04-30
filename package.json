@@ -7,8 +7,10 @@
     "eject": "expo eject",
     "tslint": "tslint --project .",
     "tsc-test": "tsc --project . --noEmit --skipLibCheck",
-    "jest": "jest --config ./jest.config.js"
+    "jest": "jest --config ./jest.config.js",
+    "lint": "tsc --noEmit --skipLibCheck && tslint --project tsconfig.json './src/**/*.ts*'"
   },
+  "pre-commit": "lint",
   "dependencies": {
     "@babel/plugin-transform-react-jsx-source": "7.2.0",
     "@types/lodash.uniqueid": "4.0.6",
@@ -64,7 +66,8 @@
     "tslint-config-airbnb": "5.11.1",
     "tslint-eslint-rules": "5.4.0",
     "tslint-react": "3.6.0",
-    "typescript": "3.3.3333"
+    "typescript": "3.3.3333",
+    "typescript-tslint-plugin": "0.2.1"
   },
   "private": true
 }
