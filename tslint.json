@@ -104,6 +104,10 @@
 			  "property-declaration": "onespace",
 			  "variable-declaration": "onespace"
 			}
+		],
+		"no-namespace": [
+			true,
+			"allow-declarations"
 		]
 	}
 }

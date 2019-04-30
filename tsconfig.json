@@ -1,18 +1,28 @@
 {
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "target": "es5",
-    "lib": ["es2015", "esnext.asynciterable"],
-    "jsx": "react-native",
-	"strict": true,
-    "noUnusedLocals": true,
-    "strictNullChecks": true,
-	"noUnusedParameters": true,
-	"esModuleInterop": true,
-    "types": [
-	  "jest",
-	  "node",
-	],
-  },
-  "exclude": ["./node_modules", "./src/global.d"]
+		"allowSyntheticDefaultImports": true,
+		"target": "es5",
+		"lib": ["es2015", "esnext.asynciterable"],
+		"jsx": "react-native",
+		"strict": true,
+		"noUnusedLocals": true,
+		"strictNullChecks": true,
+		"noUnusedParameters": true,
+		"esModuleInterop": true,
+		"types": [
+			"jest",
+			"node",
+		],
+		"plugins": [
+			{
+				"name": "typescript-tslint-plugin",
+				"alwaysShowRuleFailuresAsWarnings": true,
+				"ignoreDefinitionFiles": false,
+				"configFile": "./tslint.json",
+				"suppressWhileTypeErrorsPresent": false,
+				"mockTypeScriptVersion": false,
+			}
+		],
+	},
+  "exclude": ["./node_modules", "./src/console.d.ts"],
 }

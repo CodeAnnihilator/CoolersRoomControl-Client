@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {PureComponent} from 'react';
 import {Text, View, Switch} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
-import SettingsSwitchItemInterface from '../types/SettingsSwitchItem';
+import ISettingsSwitchItemInterface from '../types/SettingsSwitchItem';
 
 const styles = EStyleSheet.create({
 	'switch': {
@@ -19,7 +19,7 @@ const styles = EStyleSheet.create({
 	},
 });
 
-export default class SettingsSwitchItem extends React.PureComponent<SettingsSwitchItemInterface> {
+export default class SettingsSwitchItem extends PureComponent<ISettingsSwitchItemInterface> {
 	private readonly onValueChange = () => {
 		const {changeTemperatureScale, type} = this.props;
 
