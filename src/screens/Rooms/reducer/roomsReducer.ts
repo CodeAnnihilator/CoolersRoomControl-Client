@@ -153,8 +153,6 @@ const roomsReducer = handleActions({
 	[EDIT_DATA_AT_ROOM]: (state: any, {payload: {roomID, data}}) => ({
 		...state,
 		rooms: state.rooms.map((item: any) => {
-			console.log(R.omit(['temporaryImages'], data));
-
 			if (item.id === roomID) {
 				return {
 					...item,

@@ -1,60 +1,50 @@
 import React, {Component} from 'react';
-import {
-StyleSheet,
-ScrollView,
-} from 'react-native';
+import {ScrollView, View} from 'react-native';
 import {Calendar} from 'react-native-calendars';
+import {LinearGradient} from 'expo';
+import {schedulerTheme} from '../style/schedulerStyle';
+import SchedulerNotificationsContainer from '../containers/SchedulerNotificationsContainer';
+import dayjs from 'dayjs';
 
-export default class Scheduler extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {};
-		this.onDayPress = this.onDayPress.bind(this);
-	}
-
-	render() {
-		return (
-		<ScrollView style={styles.container}>
-			<Calendar
-				style={styles.calendar}
-				current={'2012-05-16'}
-				minDate={'2012-05-10'}
-				maxDate={'2012-05-29'}
-				firstDay={1}
-				markedDates={{
-					'2012-05-23': {selected: true, marked: true},
-					'2012-05-24': {selected: true, marked: true, dotColor: 'green'},
-					'2012-05-25': {marked: true, dotColor: 'red'},
-					'2012-05-26': {marked: true},
-					'2012-05-27': {disabled: true, activeOpacity: 0},
-				}}
-			/>
-		</ScrollView>
-		);
-	}
-
-	onDayPress(day) {
-		this.setState({
-			selected: day.dateString
-		});
-	}
+interface IProps {
+	chooseDateAtCalendar: (dateString: string) => void;
+	dates: {
+		[key: string]: Array<{
+			selected: boolean;
+			marked: boolean;
+		}>;
+	};
+	selectedDate: string;
 }
 
-const styles = StyleSheet.create({
-	calendar: {
-		borderTopWidth: 1,
-		paddingTop: 5,
-		borderBottomWidth: 1,
-		borderColor: '#eee',
-		height: 350
-	},
-	text: {
-		textAlign: 'center',
-		borderColor: '#bbb',
-		padding: 10,
-		backgroundColor: '#eee'
-	},
-	container: {
-		flex: 1,
-	},
-});
+export default class Scheduler extends Component<IProps> {
+	protected chooseDateAtCalendar = ({dateString}: {dateString: string}) => this.props.chooseDateAtCalendar(dateString);
+
+	public render() {
+		const {dates, selectedDate} = this.props;
+
+		return (
+			<>
+				<LinearGradient
+					colors={['#6f55f3', '#cf5fb9']}
+					style={{
+						width: '100%',
+					}}
+				>
+					<Calendar
+						style={{
+							padding: 20,
+						}}
+						markingType='multi-dot'
+						markedDates={dates}
+						firstDay={1}
+						// lib types error, all ok, look at https://github.com/wix/react-native-calendars#advanced-styling
+						theme={schedulerTheme}
+						onDayPress={this.chooseDateAtCalendar}
+					/>
+				</LinearGradient>
+				<SchedulerNotificationsContainer />
+			</>
+		);
+	}
+}

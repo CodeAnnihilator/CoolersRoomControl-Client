@@ -1182,6 +1182,15 @@
   resolved "https://registry.yarnpkg.com/@types/ramda/-/ramda-0.26.6.tgz#1aaf5060da8ebb99529420b6eb997c50f74c218e"
   integrity sha512-AmTHEkGo/EEufYY7MRqlgI0HLsLiAnc02pKOTVzE2D9IHf6yH2Xz71ompfEnduuaFGplYrtIOFOUOLs0AbMj9Q==
 
+"@types/react-native-calendars@^1.20.5":
+  version "1.20.5"
+  resolved "https://registry.yarnpkg.com/@types/react-native-calendars/-/react-native-calendars-1.20.5.tgz#cc79750f3f72891d5d59fa2b026b73853ed9afaa"
+  integrity sha512-qWTn8+96XlL/kMvh7KoIHZYNzrSOYdc6UsvH6gMYuPkFnIF4HsCzucWj+E/xfrVRUPpLnQLcnY5eJ8TTtVwzGQ==
+  dependencies:
+    "@types/react" "*"
+    "@types/react-native" "*"
+    "@types/xdate" "*"
+
 "@types/react-native-snap-carousel@3.7.1":
   version "3.7.1"
   resolved "https://registry.yarnpkg.com/@types/react-native-snap-carousel/-/react-native-snap-carousel-3.7.1.tgz#26222d5d23cf1971f40c6b3ae71acdf709589f77"
@@ -1269,6 +1278,11 @@
   version "0.0.27"
   resolved "https://registry.yarnpkg.com/@types/websql/-/websql-0.0.27.tgz#621a666a7f02018e7cbb4abab956a25736c27d71"
   integrity sha1-Yhpman8CAY58u0q6uVaiVzbCfXE=
+
+"@types/xdate@*":
+  version "0.8.29"
+  resolved "https://registry.yarnpkg.com/@types/xdate/-/xdate-0.8.29.tgz#0aeacee64c7f54792dc1e3e93af320839a0367dc"
+  integrity sha512-vhjumeX678c1aA5TDdxeLdWjqazQ4qDvgK57pRr5l3Y0H5+ZZYckNtLkJiW4tJ3YVZq43ZFZFVResfAM4UMvTw==
 
 "@types/yargs@^12.0.2", "@types/yargs@^12.0.9":
   version "12.0.12"
@@ -7201,7 +7215,7 @@ react-native-branch@2.2.5:
   resolved "https://registry.yarnpkg.com/react-native-branch/-/react-native-branch-2.2.5.tgz#4074dd63b4973e6397d9ce50e97b57c77a518e9d"
   integrity sha1-QHTdY7SXPmOX2c5Q6XtXx3pRjp0=
 
-react-native-calendars@^1.36.0:
+react-native-calendars@1.36.0:
   version "1.36.0"
   resolved "https://registry.yarnpkg.com/react-native-calendars/-/react-native-calendars-1.36.0.tgz#1f0b706b69d73761c38f83951323fb1b3b426c15"
   integrity sha512-wg4zxhKnwAbkMubz4JsuiG5YSrJb2+ddWSi0nmQz0NAM4bQV0K3cZCFyubNoTeRmrZ2Tv75tZiVOMaJd7scpBA==

@@ -25,4 +25,12 @@ export default EStyleSheet.create({
 		flex: 1,
 		flexDirection: 'column',
 	},
+	notFound: {
+		alignItems: 'center',
+		padding: 20,
+	},
+	notFoundText: {
+		fontSize: 24,
+		fontFamily: 'DIN-bold',
+	},
 });

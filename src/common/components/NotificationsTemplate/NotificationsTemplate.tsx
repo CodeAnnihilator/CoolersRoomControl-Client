@@ -45,16 +45,24 @@ class Notifications extends Component<IProps> {
 
 		return (
 			<ScrollView style={styles.container}>
-				{dates.map((el: number, index: number) => (
+				{dates.length
+					? dates.map((el: number, index: number) => (
 						<View key={el} style={styles.cardWrapper}>
 							<View style={styles.border}>
 								<Text style={styles.date}>{dayjs(el).format('DD MMM')}</Text>
 							</View>
 							<View style={styles.content}>
-								{notifications[index].map(this.renderContent)}
+								{notifications.length && notifications[index].map(this.renderContent)}
 							</View>
 						</View>
 					))
+					: (
+						<View style={styles.notFound}>
+							<Text style={styles.notFoundText}>
+								Notifications not found
+							</Text>
+						</View>
+					)
 				}
 			</ScrollView>
 		);

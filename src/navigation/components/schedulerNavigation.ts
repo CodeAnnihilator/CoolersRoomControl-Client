@@ -1,10 +1,10 @@
 import {createStackNavigator} from 'react-navigation';
 
-import Scheduler from '../../screens/Scheduler/components/Scheduler';
+import SchedulerContainer from '../../screens/Scheduler/containers/SchedulerContainer';
 
 export default createStackNavigator({
 	Scheduler: {
-		screen: Scheduler,
+		screen: SchedulerContainer,
 		navigationOptions: {
 			title: 'Schedule',
 		},

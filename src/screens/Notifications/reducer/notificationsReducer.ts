@@ -7,6 +7,7 @@ const initialState = {
 };
 
 const notificationsReducer = handleActions({
+	1: state => state,
 }, initialState);
 
 export default notificationsReducer;

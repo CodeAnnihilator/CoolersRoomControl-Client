@@ -17,27 +17,29 @@ const store = configureStore({});
 const AppContainer = createAppContainer(AppNavigator);
 
 interface IAppState {
-	fontLoaded: boolean,
+	isFontLoaded: boolean,
 }
 
 export default class App extends React.Component<{}, IAppState> {
 	public state = {
-		fontLoaded: false,
+		isFontLoaded: false,
 	};
 
 	public async componentDidMount() {
 		await Font.loadAsync({
 			'DIN': require('../assets/fonts/D-DIN.ttf'),
 			'DIN-bold': require('../assets/fonts/D-DIN-Bold.ttf'),
+			'Larke': require('../assets/fonts/Larke-thin.ttf'),
+			'Larke-bold': require('../assets/fonts/Larke-Bold.ttf'),
 		});
 
-		this.setState({fontLoaded: true});
+		this.setState({isFontLoaded: true});
 	}
 
 	public render() {
 		return (
 			<Provider store={store}>
-				{this.state.fontLoaded ? <AppContainer /> : null}
+				{this.state.isFontLoaded ? <AppContainer /> : null}
 			</Provider>
 		);
 	}
